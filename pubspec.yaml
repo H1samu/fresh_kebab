@@ -1,0 +1,34 @@
+name: fresh_kebab
+description: A new Flutter project.
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.1.1 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/images/bakery/
+    - assets/images/burgers/
+    - assets/images/cocktails/
+    - assets/images/desserts/
+    - assets/images/dishes/
+    - assets/images/doners/
+    - assets/images/drinks/
+    - assets/images/fries/
+    - assets/images/logos/
+    - assets/images/pizza/
+    - assets/images/salads/
+    - assets/images/shawarma/
