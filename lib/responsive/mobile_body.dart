@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fresh_kebab/constants.dart';
+import 'package:fresh_kebab/widgets/product_card.dart';
 
 class MobileScaffold extends StatefulWidget {
   const MobileScaffold({Key? key}) : super(key: key);
@@ -36,6 +37,7 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                           textTitle: 'Пицца "Мясная"',
                           textDescription:
                               'Соус итальянский, фирменные соус, сыр моцарелла, конина, пепперони, свежие томаты, оливки, 2 вида фирменных специй, соус песто',
+                          textWeight: 'Вес: 560гр.',
                           textPrice: '500 ₽'),
                       Spacer(),
                       ProductCard(
@@ -43,85 +45,15 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                           textTitle: 'Пицца "Мясная"',
                           textDescription:
                               'Соус итальянский, фирменные соус, сыр моцарелла, конина, пепперони, свежие томаты, оливки, 2 вида фирменных специй, соус песто',
+                          textWeight: 'Вес: 560гр.',
                           textPrice: '500 ₽'),
                     ],
                   ),
-                )
+                ),
               ],
-            )
+            ),
+            Footer()
           ],
         ));
-  }
-}
-
-class ProductCard extends StatelessWidget {
-  final String imagePath;
-  final String textTitle;
-  final String textDescription;
-  final String textPrice;
-  const ProductCard(
-      {super.key,
-      required this.imagePath,
-      required this.textTitle,
-      required this.textDescription,
-      required this.textPrice});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 150,
-      height: 600,
-      child: Column(
-        children: [
-          Image.asset(
-            imagePath,
-            height: 150,
-            width: 150,
-          ),
-          const SizedBox(height: 40),
-          Text(textTitle,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w300,
-              )),
-          const SizedBox(height: 15),
-          Text(
-            textDescription,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w200,
-              height: 1.5,
-            ),
-          ),
-          const Spacer(),
-          Text(
-            textPrice,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w300,
-            ),
-          ),
-          const SizedBox(height: 20),
-          Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: const Color(0xffcc3333), width: 2),
-              borderRadius: const BorderRadius.horizontal(
-                  left: Radius.circular(20), right: Radius.circular(20)),
-            ),
-            child: const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 35),
-              child: Text(
-                'В корзину',
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Color(0xffcc3333), fontSize: 15),
-              ),
-            ),
-          )
-        ],
-      ),
-    );
   }
 }
