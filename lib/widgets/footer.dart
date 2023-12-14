@@ -9,25 +9,22 @@ class Footer extends StatelessWidget {
       children: [
         Container(
           decoration: const BoxDecoration(color: Color(0xff028f52)),
-          height: 170,
+          height: 150,
           width: double.infinity,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 10),
-              Center(
-                child: Image.asset(
-                  'assets/images/logos/fk_border.png',
-                  width: 150,
-                  height: 56,
-                ),
+              Image.asset(
+                'assets/images/logos/fk_border.png',
+                width: 150,
+                height: 60,
               ),
-              const Padding(
-                padding: EdgeInsets.only(left: 0, top: 10, right: 0),
-                child: Row(
-                  children: [
-                    Column(
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 25),
+                    child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         FooterText(
@@ -39,9 +36,46 @@ class Footer extends StatelessWidget {
                         SizedBox(height: 10),
                       ],
                     ),
-                  ],
-                ),
-              ),
+                  ),
+                  Spacer(),
+                  Padding(
+                    padding: EdgeInsets.only(right: 25),
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text("Контакты  ",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 20)),
+                              Icon(
+                                Icons.location_on,
+                                color: Colors.white,
+                                size: 20,
+                              )
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text("Вакансии  ",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 20)),
+                              Icon(
+                                Icons.person_search,
+                                color: Colors.white,
+                                size: 20,
+                              )
+                            ],
+                          ),
+                        ]),
+                  ),
+                ],
+              )
             ],
           ),
         ),
@@ -57,6 +91,7 @@ class Footer extends StatelessWidget {
           width: double.infinity,
           decoration: const BoxDecoration(color: Color(0xff028f52)),
           child: const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 "Fresh Kebab © 2023",
