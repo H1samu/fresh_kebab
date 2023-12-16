@@ -3,20 +3,20 @@ import 'package:fresh_kebab/widgets/footer.dart';
 import 'package:fresh_kebab/widgets/header.dart';
 import 'package:fresh_kebab/widgets/product_card.dart';
 
-class MobileScaffold extends StatefulWidget {
-  const MobileScaffold({Key? key}) : super(key: key);
+class MainMobile extends StatefulWidget {
+  const MainMobile({Key? key}) : super(key: key);
 
   @override
-  State<MobileScaffold> createState() => _MobileScaffoldState();
+  State<MainMobile> createState() => _MobileScaffoldState();
 }
 
-class _MobileScaffoldState extends State<MobileScaffold> {
+class _MobileScaffoldState extends State<MainMobile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(100.0), child: MyAppBar()),
+      appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(100.0), child: appBarWithTab),
       body: ListView(
         children: const [
           Column(

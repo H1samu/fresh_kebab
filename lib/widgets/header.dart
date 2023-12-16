@@ -1,21 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_kebab/responsive/mobile/main_mobile.dart';
+import 'package:fresh_kebab/responsive/mobile/contacts_mobile.dart';
+import 'package:fresh_kebab/app.dart';
 
-class MyAppBar extends StatelessWidget {
-  const MyAppBar({super.key});
+var appBarWithTab = AppBar(
+  scrolledUnderElevation: 0,
+  shape: Border.all(color: Colors.white),
+  foregroundColor: Colors.white,
+  backgroundColor: Colors.white,
+  elevation: 0,
+  bottom: myTabBar,
+  flexibleSpace: myHeader,
+);
 
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      scrolledUnderElevation: 0,
-      shape: Border.all(color: Colors.white),
-      foregroundColor: Colors.white,
-      backgroundColor: Colors.white,
-      elevation: 0,
-      bottom: myTabBar,
-      flexibleSpace: myHeader,
-    );
-  }
-}
+var appBarWithoutTab = AppBar(
+  scrolledUnderElevation: 0,
+  shape: Border.all(color: Colors.white),
+  foregroundColor: Colors.white,
+  backgroundColor: Colors.white,
+  elevation: 0,
+  flexibleSpace: myHeader,
+);
 
 var myHeader = Padding(
   padding: const EdgeInsets.only(right: 40, top: 20, bottom: 40, left: 20),

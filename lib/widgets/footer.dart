@@ -18,11 +18,11 @@ class Footer extends StatelessWidget {
                 width: 150,
                 height: 60,
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(left: 25),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,40 +37,50 @@ class Footer extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Padding(
-                    padding: EdgeInsets.only(right: 25),
+                    padding: const EdgeInsets.only(right: 25),
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text("Контакты  ",
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 20)),
-                              Icon(
-                                Icons.location_on,
-                                color: Colors.white,
-                                size: 20,
-                              )
-                            ],
+                          GestureDetector(
+                            onTap: () =>
+                                Navigator.pushNamed(context, "/contact"),
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text("Контакты  ",
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 20)),
+                                Icon(
+                                  Icons.location_on,
+                                  color: Colors.white,
+                                  size: 20,
+                                )
+                              ],
+                            ),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text("Вакансии  ",
+                          GestureDetector(
+                            onTap: () =>
+                                Navigator.pushNamed(context, "/vacancy"),
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Вакансии  ",
                                   style: TextStyle(
-                                      color: Colors.white, fontSize: 20)),
-                              Icon(
-                                Icons.person_search,
-                                color: Colors.white,
-                                size: 20,
-                              )
-                            ],
+                                      color: Colors.white, fontSize: 20),
+                                ),
+                                Icon(
+                                  Icons.person_search,
+                                  color: Colors.white,
+                                  size: 20,
+                                )
+                              ],
+                            ),
                           ),
                         ]),
                   ),
