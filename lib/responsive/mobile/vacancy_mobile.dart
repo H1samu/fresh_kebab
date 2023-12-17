@@ -9,87 +9,89 @@ class Vacancy extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(100),
-        child: appBarWithoutTab,
-      ),
       body: Container(
         color: Colors.white,
         child: ListView(
-          children: const [
+          children: [
             Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(
-                  child: Column(
-                    children: [
-                      Text(
-                        "Нам требуются:",
-                        style: TextStyle(
-                            fontSize: 30, fontWeight: FontWeight.w500),
+                headerWithButton(context),
+                const Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: Column(
+                        children: [
+                          Text(
+                            "Нам требуются:",
+                            style: TextStyle(
+                                fontSize: 30, fontWeight: FontWeight.w500),
+                          ),
+                          SizedBox(height: 15),
+                          Text(
+                            "Вступай в нашу команду",
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          SizedBox(height: 25),
+                        ],
                       ),
-                      SizedBox(height: 15),
-                      Text(
-                        "Вступай в нашу команду",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      SizedBox(height: 25),
-                    ],
-                  ),
+                    ),
+                    PositionAtWork(
+                      imagePath: "assets/images/vacancy/courier.jpg",
+                      textPost: "Курьер",
+                      textDescription1:
+                          "Требуются курьеры в компанию Fresh Kebab по адресу Пушкинская, 173.",
+                      textDescription2:
+                          "2500 рублей оклад, плюс 6 рублей км, плюс 15 рублей за заказ.",
+                      textDescription3: "Зарплата в конце смены.",
+                      textDescription4: "Рабочий день с 9-30 до 23-30.",
+                      textDescription5:
+                          "На постоянной основе или в качестве подработки.",
+                      textDescription6: "Подробности по телефону:",
+                      textDescription7:
+                          "89821245455 Настя. Telegram, WhatsApp, Viber.",
+                    ),
+                    SizedBox(height: 60),
+                    PositionAtWork(
+                      imagePath: "assets/images/vacancy/pizza_maker.jpg",
+                      textPost:
+                          "Пиццемейкер                                     ",
+                      textDescription1: "Работа по графику 2*2",
+                      textDescription2: "Зарплата почасовая 185р в час ",
+                      textDescription3: "Рабочая смена с 9:00-23:00 ",
+                      textDescription4: "Подробности по телефону:",
+                      textDescription5:
+                          "89127445656 Ренат. Telegram,WhatsApp,Viber.",
+                    ),
+                    SizedBox(height: 60),
+                    PositionAtWork(
+                      imagePath: "assets/images/vacancy/cleaner.jpg",
+                      textPost:
+                          "Уборщица                                              ",
+                      textDescription1: "Зарплата от 1400р смена ",
+                      textDescription2: "Работа по графику 2*2 ",
+                      textDescription3: "Подробности по телефону:",
+                      textDescription4:
+                          "89127445656 Ренат. Telegram,WhatsApp,Viber.",
+                    ),
+                    SizedBox(height: 60),
+                    PositionAtWork(
+                      imagePath: "assets/images/vacancy/chef.jpg",
+                      textPost:
+                          "Повар                                                  ",
+                      textDescription1: "Зарплата до 50000р",
+                      textDescription2: "Сменный график 3*1, 5*1 ",
+                      textDescription3: "Подробности по телефону:",
+                      textDescription4:
+                          "89127445656 Ренат. Telegram,WhatsApp,Viber",
+                    ),
+                    SizedBox(height: 60),
+                  ],
                 ),
-                PositionAtWork(
-                  imagePath: "assets/images/vacancy/courier.jpg",
-                  textPost: "Курьер",
-                  textDescription1:
-                      "Требуются курьеры в компанию Fresh Kebab по адресу Пушкинская, 173.",
-                  textDescription2:
-                      "2500 рублей оклад, плюс 6 рублей км, плюс 15 рублей за заказ.",
-                  textDescription3: "Зарплата в конце смены.",
-                  textDescription4: "Рабочий день с 9-30 до 23-30.",
-                  textDescription5:
-                      "На постоянной основе или в качестве подработки.",
-                  textDescription6: "Подробности по телефону:",
-                  textDescription7:
-                      "89821245455 Настя. Telegram, WhatsApp, Viber.",
-                ),
-                SizedBox(height: 60),
-                PositionAtWork(
-                  imagePath: "assets/images/vacancy/pizza_maker.jpg",
-                  textPost: "Пиццемейкер                                     ",
-                  textDescription1: "Работа по графику 2*2",
-                  textDescription2: "Зарплата почасовая 185р в час ",
-                  textDescription3: "Рабочая смена с 9:00-23:00 ",
-                  textDescription4: "Подробности по телефону:",
-                  textDescription5:
-                      "89127445656 Ренат. Telegram,WhatsApp,Viber.",
-                ),
-                SizedBox(height: 60),
-                PositionAtWork(
-                  imagePath: "assets/images/vacancy/cleaner.jpg",
-                  textPost:
-                      "Уборщица                                              ",
-                  textDescription1: "Зарплата от 1400р смена ",
-                  textDescription2: "Работа по графику 2*2 ",
-                  textDescription3: "Подробности по телефону:",
-                  textDescription4:
-                      "89127445656 Ренат. Telegram,WhatsApp,Viber.",
-                ),
-                SizedBox(height: 60),
-                PositionAtWork(
-                  imagePath: "assets/images/vacancy/chef.jpg",
-                  textPost:
-                      "Повар                                                  ",
-                  textDescription1: "Зарплата до 50000р",
-                  textDescription2: "Сменный график 3*1, 5*1 ",
-                  textDescription3: "Подробности по телефону:",
-                  textDescription4:
-                      "89127445656 Ренат. Telegram,WhatsApp,Viber",
-                ),
-                SizedBox(height: 60),
               ],
             ),
-            Footer()
+            const Footer()
           ],
         ),
       ),
