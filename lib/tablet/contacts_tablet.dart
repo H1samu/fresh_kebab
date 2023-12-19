@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fresh_kebab/widgets/footer.dart';
 import 'package:fresh_kebab/widgets/header.dart';
 
-class Contacts extends StatelessWidget {
-  const Contacts({super.key});
+class ContactsTablet extends StatelessWidget {
+  const ContactsTablet({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_kebab/responsive/mobile/menu_mobile.dart';
+import 'package:fresh_kebab/mobile/menu_mobile.dart';
 
 var myAppBar = DefaultTabController(
   length: 11,

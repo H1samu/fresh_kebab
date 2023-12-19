@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_kebab/responsive/desktop_body.dart';
-import 'package:fresh_kebab/responsive/mobile/menu_mobile.dart';
-import 'package:fresh_kebab/responsive/responsive_layout.dart';
-import 'package:fresh_kebab/responsive/tablet_body.dart';
+import 'package:fresh_kebab/desktop/desktop_body.dart';
+import 'package:fresh_kebab/mobile/menu_mobile.dart';
+import 'package:fresh_kebab/widgets/responsive_layout.dart';
+import 'package:fresh_kebab/tablet/menu_tablet.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);

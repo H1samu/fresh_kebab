@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_kebab/constants.dart';
-import '../util/my_box.dart';
-import '../util/my_tile.dart';
+import 'package:fresh_kebab/delete/constants.dart';
+import '../delete/util/my_box.dart';
+import '../delete/util/my_tile.dart';
 
 class TabletScaffold extends StatefulWidget {
   const TabletScaffold({Key? key}) : super(key: key);

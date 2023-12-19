@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_kebab/responsive/mobile/contacts_mobile.dart';
-import 'package:fresh_kebab/responsive/mobile/vacancy_mobile.dart';
+import 'package:fresh_kebab/mobile/contacts_mobile.dart';
+import 'package:fresh_kebab/vacancy_main.dart';
 
 class Footer extends StatelessWidget {
   const Footer({super.key});
@@ -51,7 +51,7 @@ class Footer extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const Contacts()),
+                                  builder: (context) => const ContactsMobile()),
                             );
                           },
                           child: const Row(
@@ -74,7 +74,7 @@ class Footer extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const Vacancy()),
+                                  builder: (context) => const VacancyMain()),
                             );
                           },
                           child: const Row(
