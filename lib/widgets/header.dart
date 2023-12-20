@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_kebab/mobile/menu_mobile.dart';
+import 'package:fresh_kebab/menu_main.dart';
 
 var myAppBar = DefaultTabController(
   length: 11,
@@ -28,7 +28,7 @@ var headerWithButton = (BuildContext context) => Padding(
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const MenuMobile()),
+                    MaterialPageRoute(builder: (context) => const MenuMain()),
                   );
                 },
                 child: Image.asset(
@@ -68,7 +68,7 @@ var headerWithButton = (BuildContext context) => Padding(
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const MenuMobile()),
+                MaterialPageRoute(builder: (context) => const MenuMain()),
               );
             },
             icon: const Icon(

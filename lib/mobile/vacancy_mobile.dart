@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget mobileVacancy() {
+Widget vacancyMobile() {
   return const Column(
     mainAxisAlignment: MainAxisAlignment.start,
     crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget tabletVacancy() {
+Widget vacancyTablet() {
   return const Column(
     mainAxisAlignment: MainAxisAlignment.start,
     crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,46 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_kebab/widgets/footer.dart';
-import 'package:fresh_kebab/widgets/header.dart';
 
-class ContactsMobile extends StatelessWidget {
-  const ContactsMobile({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    Widget content = screenWidth <= 500 ? mobileContent() : tabletContent();
-    return MaterialApp(
-      home: Scaffold(
-        body: Container(
-          color: Colors.white,
-          child: ListView(
-            children: [
-              Column(
-                children: [
-                  headerWithButton(context),
-                  content,
-                ],
-              ),
-              const Footer()
-            ],
-          ),
+Widget contactsMobile() {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 20),
+    child: Column(
+      children: [
+        const Placeholder(
+          fallbackHeight: 300,
+          fallbackWidth: double.infinity,
         ),
-      ),
-    );
-  }
-}
-
-Widget mobileContent() {
-  return Column(
-    children: [
-      const Placeholder(
-        fallbackHeight: 300,
-        fallbackWidth: double.infinity,
-      ),
-      const SizedBox(height: 40),
-      Padding(
-        padding: const EdgeInsets.only(left: 20, bottom: 30),
-        child: Column(
+        const SizedBox(height: 40),
+        Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -84,16 +54,11 @@ Widget mobileContent() {
                   color: const Color(0xff028f52),
                 ),
               ],
-            )
+            ),
+            SizedBox(height: 30),
           ],
-        ),
-      )
-    ],
-  );
-}
-
-Widget tabletContent() {
-  return Column(
-    children: [Text("data")],
+        )
+      ],
+    ),
   );
 }

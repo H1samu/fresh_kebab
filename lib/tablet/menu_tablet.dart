@@ -1,54 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_kebab/delete/constants.dart';
-import '../delete/util/my_box.dart';
-import '../delete/util/my_tile.dart';
+import 'package:fresh_kebab/widgets/product_card.dart';
 
-class TabletScaffold extends StatefulWidget {
-  const TabletScaffold({Key? key}) : super(key: key);
-
-  @override
-  State<TabletScaffold> createState() => _TabletScaffoldState();
-}
-
-class _TabletScaffoldState extends State<TabletScaffold> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: defaultBackgroundColor,
-      appBar: myAppBar,
-      drawer: myDrawer,
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
+Widget menuTablet() {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Padding(
+        padding: EdgeInsets.only(left: 20, bottom: 120, top: 60),
+        child: Text(
+          "Пицца",
+          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 35),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20),
+        child: Row(
           children: [
-            // first 4 boxes in grid
-            AspectRatio(
-              aspectRatio: 4,
-              child: SizedBox(
-                width: double.infinity,
-                child: GridView.builder(
-                  itemCount: 4,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4),
-                  itemBuilder: (context, index) {
-                    return MyBox();
-                  },
-                ),
-              ),
-            ),
-
-            // list of previous days
-            Expanded(
-              child: ListView.builder(
-                itemCount: 6,
-                itemBuilder: (context, index) {
-                  return const MyTile();
-                },
-              ),
-            ),
+            ProductCard(
+                imagePath: 'assets/images/pizza/meat.png',
+                textTitle: 'Пицца "Мясная"',
+                textDescription:
+                    'Соус итальянский, фирменные соус, сыр моцарелла, конина, пепперони, свежие томаты, оливки, 2 вида фирменных специй, соус песто',
+                textWeight: 'Вес: 560гр.',
+                textPrice: '500 ₽'),
+            Spacer(),
+            ProductCard(
+                imagePath: 'assets/images/pizza/meat.png',
+                textTitle: 'Пицца "Мясная"',
+                textDescription:
+                    'Соус итальянский, фирменные соус, сыр моцарелла, конина, пепперони, свежие томаты, оливки, 2 вида фирменных специй, соус песто',
+                textWeight: 'Вес: 560гр.',
+                textPrice: '500 ₽'),
           ],
         ),
       ),
-    );
-  }
+    ],
+  );
 }

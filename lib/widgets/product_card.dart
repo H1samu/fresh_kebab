@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 class ProductCard extends StatelessWidget {
   final String imagePath;
   final String textTitle;
-  final String textDescription;
+  final String? textDescription;
   final String textPrice;
   final String textWeight;
   const ProductCard({
     super.key,
     required this.imagePath,
     required this.textTitle,
-    required this.textDescription,
+    this.textDescription,
     required this.textPrice,
     required this.textWeight,
   });
@@ -19,13 +19,14 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 150,
-      height: 550,
+      height: 565,
       child: Column(
         children: [
           Image.asset(
             imagePath,
             height: 150,
             width: 150,
+            fit: BoxFit.cover,
           ),
           const SizedBox(height: 30),
           Text(textTitle,
@@ -35,15 +36,16 @@ class ProductCard extends StatelessWidget {
                 fontWeight: FontWeight.w300,
               )),
           const SizedBox(height: 15),
-          Text(
-            textDescription,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w200,
-              height: 1.5,
+          if (textDescription != null)
+            Text(
+              textDescription!,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w200,
+                height: 1.5,
+              ),
             ),
-          ),
           Text(
             textWeight,
             textAlign: TextAlign.center,
