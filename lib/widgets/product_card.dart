@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+// Используется под Пиццу, Бургеры, Дёнер, Салаты, Выпечка, Десерты. Высота контейнера по умолчанию 570 (можно менять), Заполнение картинки fit: BoxFit.cover.
 class ProductCard extends StatelessWidget {
+  final double containerHeight;
   final String imagePath;
   final String textTitle;
   final String? textDescription;
@@ -13,13 +15,14 @@ class ProductCard extends StatelessWidget {
     this.textDescription,
     required this.textPrice,
     required this.textWeight,
+    this.containerHeight = 570,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 150,
-      height: 565,
+      height: containerHeight,
       child: Column(
         children: [
           Image.asset(
@@ -85,6 +88,7 @@ class ProductCard extends StatelessWidget {
   }
 }
 
+// Используется под Фри-меню. Особенности: Размер картинки 100х100, заполнение дефолтное
 class ProductCardSmall extends StatelessWidget {
   final String imagePath;
   final String textTitle;
@@ -104,20 +108,107 @@ class ProductCardSmall extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 150,
-      height: 350,
+      height: 360,
+      child: Column(
+        children: [
+          Image.asset(
+            imagePath,
+            height: 100,
+            width: 100,
+          ),
+          const SizedBox(height: 30),
+          Text(textTitle,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 19,
+                fontWeight: FontWeight.w300,
+              )),
+          const SizedBox(height: 15),
+          if (textDescription != null)
+            Text(
+              textDescription!,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w200,
+                height: 1.5,
+              ),
+            ),
+          if (textWeight != null)
+            Text(
+              textWeight!,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w200,
+                height: 1.5,
+              ),
+            ),
+          const Spacer(),
+          Text(
+            textPrice,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w300,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: const Color(0xffcc3333), width: 2),
+              borderRadius: const BorderRadius.all(Radius.circular(30)),
+            ),
+            child: const Padding(
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 35),
+              child: Text(
+                'В корзину',
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Color(0xffcc3333), fontSize: 15),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+// Используется под Напитки и коктейли. Особенности: Размер картинки 140х140, заполнение дефолтное
+class ProductCardLong extends StatelessWidget {
+  final double containerHeight;
+  final String imagePath;
+  final String textTitle;
+  final String? textDescription;
+  final String textPrice;
+  final String? textWeight;
+  const ProductCardLong({
+    super.key,
+    required this.imagePath,
+    required this.textTitle,
+    this.textDescription,
+    required this.textPrice,
+    this.textWeight,
+    this.containerHeight = 350,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 150,
+      height: containerHeight,
       child: Column(
         children: [
           Image.asset(
             imagePath,
             height: 140,
             width: 140,
-            fit: BoxFit.fill,
           ),
           const SizedBox(height: 30),
           Text(textTitle,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                fontSize: 20,
+                fontSize: 19,
                 fontWeight: FontWeight.w300,
               )),
           const SizedBox(height: 15),
@@ -171,38 +262,42 @@ class ProductCardSmall extends StatelessWidget {
   }
 }
 
-class ProductCardLong extends StatelessWidget {
+// Используется под Шаурму, шашлык (Нужно реализовать кнопку 'Выбрать добавки'). Особенности: Кнопка 'Выбрать добавки' вместо 'В корзину'
+class ProductCardShawarma extends StatelessWidget {
   final String imagePath;
   final String textTitle;
   final String? textDescription;
+  final String? textDescription2;
   final String textPrice;
-  final String? textWeight;
-  const ProductCardLong({
+  final String textWeight;
+  const ProductCardShawarma({
     super.key,
     required this.imagePath,
     required this.textTitle,
     this.textDescription,
     required this.textPrice,
-    this.textWeight,
+    required this.textWeight,
+    this.textDescription2,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 150,
-      height: 350,
+      height: 480,
       child: Column(
         children: [
           Image.asset(
             imagePath,
-            height: 140,
-            width: 140,
+            height: 150,
+            width: 150,
+            fit: BoxFit.cover,
           ),
           const SizedBox(height: 30),
           Text(textTitle,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                fontSize: 19.5,
+                fontSize: 20,
                 fontWeight: FontWeight.w300,
               )),
           const SizedBox(height: 15),
@@ -211,21 +306,30 @@ class ProductCardLong extends StatelessWidget {
               textDescription!,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                fontSize: 15,
+                fontSize: 13.5,
                 fontWeight: FontWeight.w200,
                 height: 1.5,
               ),
             ),
-          if (textWeight != null)
+          if (textDescription2 != null)
             Text(
-              textWeight!,
+              textDescription2!,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                fontSize: 15,
+                fontSize: 13.5,
                 fontWeight: FontWeight.w200,
                 height: 1.5,
               ),
             ),
+          Text(
+            textWeight,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w200,
+              height: 1.5,
+            ),
+          ),
           const Spacer(),
           Text(
             textPrice,
@@ -242,11 +346,11 @@ class ProductCardLong extends StatelessWidget {
               borderRadius: const BorderRadius.all(Radius.circular(30)),
             ),
             child: const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 35),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
               child: Text(
-                'В корзину',
+                'Выбрать добавки',
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Color(0xffcc3333), fontSize: 15),
+                style: TextStyle(color: Color(0xffcc3333), fontSize: 14),
               ),
             ),
           )
