@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 // Используется под Пиццу, Бургеры, Дёнер, Салаты, Выпечка, Десерты. Высота контейнера по умолчанию 570 (можно менять), Заполнение картинки fit: BoxFit.cover.
 class ProductCard extends StatelessWidget {
-  final double containerHeight;
   final String imagePath;
   final String textTitle;
   final String? textDescription;
@@ -15,14 +14,11 @@ class ProductCard extends StatelessWidget {
     this.textDescription,
     required this.textPrice,
     required this.textWeight,
-    this.containerHeight = 570,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 150,
-      height: containerHeight,
       child: Column(
         children: [
           Image.asset(
@@ -40,14 +36,16 @@ class ProductCard extends StatelessWidget {
               )),
           const SizedBox(height: 15),
           if (textDescription != null)
-            Text(
-              textDescription!,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w200,
-                height: 1.5,
-              ),
+            Container(
+              width: 150,
+              child: Text(textDescription!,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w200,
+                    height: 1.5,
+                  ),
+                  textWidthBasis: TextWidthBasis.parent),
             ),
           Text(
             textWeight,
@@ -74,11 +72,11 @@ class ProductCard extends StatelessWidget {
               borderRadius: const BorderRadius.all(Radius.circular(30)),
             ),
             child: const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 35),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 32),
               child: Text(
                 'В корзину',
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Color(0xffcc3333), fontSize: 15),
+                style: TextStyle(color: Color(0xffcc3333), fontSize: 13),
               ),
             ),
           )
@@ -160,11 +158,11 @@ class ProductCardSmall extends StatelessWidget {
               borderRadius: const BorderRadius.all(Radius.circular(30)),
             ),
             child: const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 35),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 32),
               child: Text(
                 'В корзину',
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Color(0xffcc3333), fontSize: 15),
+                style: TextStyle(color: Color(0xffcc3333), fontSize: 13),
               ),
             ),
           )
@@ -248,11 +246,11 @@ class ProductCardLong extends StatelessWidget {
               borderRadius: const BorderRadius.all(Radius.circular(30)),
             ),
             child: const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 35),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 32),
               child: Text(
                 'В корзину',
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Color(0xffcc3333), fontSize: 15),
+                style: TextStyle(color: Color(0xffcc3333), fontSize: 13),
               ),
             ),
           )
@@ -346,11 +344,11 @@ class ProductCardShawarma extends StatelessWidget {
               borderRadius: const BorderRadius.all(Radius.circular(30)),
             ),
             child: const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 13),
               child: Text(
                 'Выбрать добавки',
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Color(0xffcc3333), fontSize: 14),
+                style: TextStyle(color: Color(0xffcc3333), fontSize: 13),
               ),
             ),
           )

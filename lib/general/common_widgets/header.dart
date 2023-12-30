@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_kebab/menu_main.dart';
+import 'package:fresh_kebab/general/menu/menu.dart';
 
 var myAppBar = DefaultTabController(
   length: 11,
   child: AppBar(
     automaticallyImplyLeading: false,
     scrolledUnderElevation: 0,
-    shape: Border.all(color: Colors.white),
-    foregroundColor: Colors.white,
-    backgroundColor: Colors.white,
+    shape: Border.all(color: const Color(0xfffdfff5)),
+    foregroundColor: const Color(0xfffdfff5),
+    backgroundColor: const Color(0xfffdfff5),
     elevation: 0,
     bottom: myTabBar,
     flexibleSpace: headerWithoutButton,

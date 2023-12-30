@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_kebab/contacts_main.dart';
-import 'package:fresh_kebab/vacancy_main.dart';
+import 'package:fresh_kebab/general/contacts.dart';
+import 'package:fresh_kebab/general/menu/menu.dart';
+import 'package:fresh_kebab/general/vacancy.dart';
 
 class Footer extends StatelessWidget {
   const Footer({super.key});
@@ -15,10 +16,20 @@ class Footer extends StatelessWidget {
           width: double.infinity,
           child: Column(
             children: [
-              Image.asset(
-                'assets/images/logos/fk_border.png',
-                width: 150,
-                height: 60,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MenuMain(),
+                    ),
+                  );
+                },
+                child: Image.asset(
+                  'assets/images/logos/fk_border.png',
+                  width: 150,
+                  height: 60,
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -51,7 +62,8 @@ class Footer extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const ContactsMain()),
+                                builder: (context) => const ContactsMain(),
+                              ),
                             );
                           },
                           child: const Row(
@@ -60,7 +72,9 @@ class Footer extends StatelessWidget {
                             children: [
                               Text("Контакты  ",
                                   style: TextStyle(
-                                      color: Colors.white, fontSize: 20)),
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                  )),
                               Icon(
                                 Icons.location_on,
                                 color: Colors.white,
@@ -74,7 +88,8 @@ class Footer extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const VacancyMain()),
+                                builder: (context) => const VacancyMain(),
+                              ),
                             );
                           },
                           child: const Row(
@@ -84,7 +99,9 @@ class Footer extends StatelessWidget {
                               Text(
                                 "Вакансии  ",
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 20),
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                ),
                               ),
                               Icon(
                                 Icons.person_search,
@@ -106,7 +123,7 @@ class Footer extends StatelessWidget {
           height: 1,
           width: double.infinity,
           decoration: const BoxDecoration(
-            color: Colors.white,
+            color: Color(0xfffdfff5),
           ),
         ),
         Container(
