@@ -15,9 +15,9 @@ class _MobileScaffoldState extends State<MenuMain> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xfffdfff5),
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(100.0),
-        child: myAppBar,
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(100.0),
+        child: MasterHeader(),
       ),
       body: ListView(
         children: const [

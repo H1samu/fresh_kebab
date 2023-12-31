@@ -14,7 +14,7 @@ class FullMenu extends StatelessWidget {
             TitleForCards(title: 'Пицца'),
             GridViewForCards(
               card: pizzaCards,
-              myHeight: 570,
+              myHeight: 595,
             ),
             TitleForCards(title: 'Фри-меню'),
             GridViewForCards(

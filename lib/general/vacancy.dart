@@ -17,7 +17,7 @@ class VacancyMain extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  headerWithButton(context),
+                  const SlaveHeader(),
                   content,
                 ],
               ),

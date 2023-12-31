@@ -17,7 +17,7 @@ class ContactsMain extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  headerWithButton(context),
+                  const SlaveHeader(),
                   content,
                 ],
               ),
@@ -62,7 +62,7 @@ Widget contactsMobile() {
               "Единый номер - пн-вс 9:00-23:00",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
             ),
-            SizedBox(height: 35),
+            const SizedBox(height: 35),
             const Text("Азина, 234А"),
             const Text("Пушкинская, 173"),
             const Text("Дзержинского, 59Б"),
@@ -86,7 +86,7 @@ Widget contactsMobile() {
                 ),
               ],
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
           ],
         )
       ],
