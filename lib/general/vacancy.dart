@@ -12,7 +12,7 @@ class VacancyMain extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: Container(
-          color: const Color(0xfffdfff5),
+          color: Colors.white,
           child: ListView(
             children: [
               Column(
@@ -305,7 +305,7 @@ class WorkerTablet extends StatelessWidget {
                 if (textDescription5 != null) Text(textDescription5!),
                 if (textDescription6 != null) Text(textDescription6!),
                 if (textDescription7 != null) Text(textDescription7!),
-                Spacer(),
+                const Spacer(),
                 Container(
                   alignment: Alignment.center,
                   height: 50,

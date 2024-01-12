@@ -12,7 +12,7 @@ class ContactsMain extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: Container(
-          color: const Color(0xfffdfff5),
+          color: Colors.white,
           child: ListView(
             children: [
               Column(

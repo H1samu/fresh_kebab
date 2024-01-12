@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_kebab/general/menu/menu_widgets/order.dart';
 
 // Используется под Пиццу, Бургеры, Дёнер, Салаты, Выпечка, Десерты. Высота контейнера по умолчанию 570 (можно менять), Заполнение картинки fit: BoxFit.cover.
 class ProductCard extends StatelessWidget {
@@ -18,70 +19,92 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Image.asset(
-            imagePath,
-            height: 150,
-            width: 150,
-            fit: BoxFit.cover,
-          ),
-          const SizedBox(height: 30),
-          Text(textTitle,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w300,
-              )),
-          const SizedBox(height: 15),
-          if (textDescription != null)
-            Container(
-              width: 150,
-              child: Text(textDescription!,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w200,
-                    height: 1.5,
-                  ),
-                  textWidthBasis: TextWidthBasis.parent),
-            ),
-          Text(
-            textWeight,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w200,
-              height: 1.5,
-            ),
-          ),
-          const Spacer(),
-          Text(
-            textPrice,
+    return Column(
+      children: [
+        Image.asset(
+          imagePath,
+          height: 150,
+          width: 150,
+          fit: BoxFit.cover,
+        ),
+        const SizedBox(height: 30),
+        Text(textTitle,
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w300,
-            ),
+            )),
+        const SizedBox(height: 15),
+        if (textDescription != null)
+          SizedBox(
+            width: 150,
+            child: Text(textDescription!,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w200,
+                  height: 1.5,
+                ),
+                textWidthBasis: TextWidthBasis.parent),
           ),
-          const SizedBox(height: 8),
-          Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: const Color(0xffcc3333), width: 2),
-              borderRadius: const BorderRadius.all(Radius.circular(30)),
-            ),
-            child: const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 32),
-              child: Text(
+        Text(
+          textWeight,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w200,
+            height: 1.5,
+          ),
+        ),
+        const Spacer(),
+        Text(
+          textPrice,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w300,
+          ),
+        ),
+        const SizedBox(height: 8),
+        Container(
+          decoration: BoxDecoration(
+            border: Border.all(color: const Color(0xffcc3333), width: 2),
+            borderRadius: const BorderRadius.all(Radius.circular(30)),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 32),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    opaque: true,
+                    pageBuilder: (context, animation, secondaryAnimation) {
+                      return const Order();
+                    },
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) {
+                      const begin = Offset(0.0, 1.0);
+                      const end = Offset.zero;
+                      const curve = Curves.easeInOut;
+                      var tween = Tween(begin: begin, end: end)
+                          .chain(CurveTween(curve: curve));
+                      var offsetAnimation = animation.drive(tween);
+                      return SlideTransition(
+                          position: offsetAnimation, child: child);
+                    },
+                  ),
+                );
+              },
+              child: const Text(
                 'В корзину',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Color(0xffcc3333), fontSize: 13),
               ),
             ),
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 }
@@ -104,7 +127,7 @@ class ProductCardSmall extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 150,
       height: 360,
       child: Column(
@@ -157,12 +180,36 @@ class ProductCardSmall extends StatelessWidget {
               border: Border.all(color: const Color(0xffcc3333), width: 2),
               borderRadius: const BorderRadius.all(Radius.circular(30)),
             ),
-            child: const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 32),
-              child: Text(
-                'В корзину',
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Color(0xffcc3333), fontSize: 13),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 32),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      opaque: true,
+                      pageBuilder: (context, animation, secondaryAnimation) {
+                        return const Order();
+                      },
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        const begin = Offset(0.0, 1.0);
+                        const end = Offset.zero;
+                        const curve = Curves.easeInOut;
+                        var tween = Tween(begin: begin, end: end)
+                            .chain(CurveTween(curve: curve));
+                        var offsetAnimation = animation.drive(tween);
+                        return SlideTransition(
+                            position: offsetAnimation, child: child);
+                      },
+                    ),
+                  );
+                },
+                child: const Text(
+                  'В корзину',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Color(0xffcc3333), fontSize: 13),
+                ),
               ),
             ),
           )
@@ -192,7 +239,7 @@ class ProductCardLong extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 150,
       height: containerHeight,
       child: Column(
@@ -245,12 +292,36 @@ class ProductCardLong extends StatelessWidget {
               border: Border.all(color: const Color(0xffcc3333), width: 2),
               borderRadius: const BorderRadius.all(Radius.circular(30)),
             ),
-            child: const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 32),
-              child: Text(
-                'В корзину',
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Color(0xffcc3333), fontSize: 13),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 32),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      opaque: true,
+                      pageBuilder: (context, animation, secondaryAnimation) {
+                        return const Order();
+                      },
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        const begin = Offset(0.0, 1.0);
+                        const end = Offset.zero;
+                        const curve = Curves.easeInOut;
+                        var tween = Tween(begin: begin, end: end)
+                            .chain(CurveTween(curve: curve));
+                        var offsetAnimation = animation.drive(tween);
+                        return SlideTransition(
+                            position: offsetAnimation, child: child);
+                      },
+                    ),
+                  );
+                },
+                child: const Text(
+                  'В корзину',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Color(0xffcc3333), fontSize: 13),
+                ),
               ),
             ),
           )
@@ -280,7 +351,7 @@ class ProductCardShawarma extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 150,
       height: 480,
       child: Column(

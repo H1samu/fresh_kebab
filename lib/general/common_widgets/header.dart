@@ -12,9 +12,9 @@ class MasterHeader extends StatelessWidget {
       child: AppBar(
         automaticallyImplyLeading: false,
         scrolledUnderElevation: 0,
-        shape: Border.all(color: const Color(0xfffdfff5)),
-        foregroundColor: const Color(0xfffdfff5),
-        backgroundColor: const Color(0xfffdfff5),
+        shape: Border.all(color: Colors.white),
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.white,
         elevation: 0,
         bottom: TabBar(
           onTap: (value) {},
@@ -60,11 +60,11 @@ class MasterHeader extends StatelessWidget {
                         children: <TextSpan>[
                           TextSpan(
                               text: '9:00 ',
-                              style: TextStyle(color: Colors.red)),
+                              style: TextStyle(color: Color(0xffcc3333))),
                           TextSpan(text: 'до '),
                           TextSpan(
                               text: '23:00',
-                              style: TextStyle(color: Colors.red))
+                              style: TextStyle(color: Color(0xffcc3333)))
                         ]),
                   ),
                   const SizedBox(height: 5),
