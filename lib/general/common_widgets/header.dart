@@ -96,10 +96,7 @@ class SlaveHeader extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const MenuMain()),
-                  );
+                  Navigator.pop(context);
                 },
                 child: Image.asset(
                   "assets/images/logos/fk.png",

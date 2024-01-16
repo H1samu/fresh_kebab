@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 /* 
 Дабы не запутаться в дальнейшем. Например, путь в карточке шаурмы с говядиной будет такой: 
       Additives(
-        forBeef: SomeCheckbox(
-          beef: OneCheckbox(additives: 'Больше говядины'),
+        setting: SomeCheckbox(
+          chikenOrbeef: OneCheckbox(additives: 'Больше говядины'),
         ),
       ),
 */
@@ -12,16 +12,17 @@ import 'package:flutter/material.dart';
 // 'Больше курицы (+140 ₽)' / 'Больше говядины (+200 ₽)'
 
 class Additives extends StatefulWidget {
-  final SomeCheckbox? forVegan;
-  final SomeCheckbox? forChiken;
-  final SomeCheckbox? forBeef;
-  const Additives({super.key, this.forVegan, this.forChiken, this.forBeef});
+  final SomeCheckbox? setting;
+  const Additives({
+    super.key,
+    this.setting,
+  });
 
   @override
-  State<Additives> createState() => _AdditivesState();
+  State<Additives> createState() => AdditivesState();
 }
 
-class _AdditivesState extends State<Additives> {
+class AdditivesState extends State<Additives> {
   final style = const TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 15,
@@ -29,33 +30,80 @@ class _AdditivesState extends State<Additives> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: ListView(
-          padding: const EdgeInsets.all(20),
-          children: [
-            Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Выберите добавки:', style: style),
-                    if (widget.forVegan != null)
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 20),
-                        child: widget.forVegan!,
+    return Scaffold(
+      body: ListView(
+        padding: const EdgeInsets.all(20),
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.close),
+                        onPressed: () => Navigator.pop(context),
                       ),
-                    Text(
-                      'Итого: ₽',
-                      style: style,
-                    )
-                  ],
-                )
-              ],
-            ),
-            const Row(),
-          ],
-        ),
+                      Text('Выберите добавки:', style: style),
+                    ],
+                  ),
+                  if (widget.setting != null)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      child: widget.setting!,
+                    ),
+                  Text(
+                    'Итого: ₽',
+                    style: style,
+                  )
+                ],
+              ),
+              const Spacer(),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset(
+                    'assets/images/shawarma/250.png',
+                    width: 180,
+                    height: 180,
+                  ),
+                  const Text(
+                    'data',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  const Text(
+                    'ssasasas',
+                    style: TextStyle(color: Color(0xff636363), fontSize: 13),
+                  ),
+                  const SizedBox(height: 50),
+                  Container(
+                    decoration: BoxDecoration(
+                      border:
+                          Border.all(color: const Color(0xffcc3333), width: 2),
+                      borderRadius: const BorderRadius.all(Radius.circular(30)),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 10, horizontal: 32),
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: const Text(
+                          'В корзину',
+                          textAlign: TextAlign.center,
+                          style:
+                              TextStyle(color: Color(0xffcc3333), fontSize: 13),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -63,19 +111,17 @@ class _AdditivesState extends State<Additives> {
 
 // Все чекбоксы с выбором добавки. Параметры с добавками "Больше курицы" и "Больше говядины" являются необязательными, а все остальные добавки уже добавлены.
 class SomeCheckbox extends StatefulWidget {
-  final OneCheckbox? chiken;
-  final OneCheckbox? beef;
+  final OneCheckbox? chikenOrbeef;
   const SomeCheckbox({
     Key? key,
-    this.chiken,
-    this.beef,
+    this.chikenOrbeef,
   }) : super(key: key);
 
   @override
-  State<SomeCheckbox> createState() => _SomeCheckboxState();
+  State<SomeCheckbox> createState() => SomeCheckboxState();
 }
 
-class _SomeCheckboxState extends State<SomeCheckbox> {
+class SomeCheckboxState extends State<SomeCheckbox> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -102,8 +148,7 @@ class _SomeCheckboxState extends State<SomeCheckbox> {
         const OneCheckbox(
           additives: 'Сыр Голладский (+45 ₽)',
         ),
-        if (widget.chiken != null) widget.chiken!,
-        if (widget.beef != null) widget.beef!,
+        if (widget.chikenOrbeef != null) widget.chikenOrbeef!,
       ],
     );
   }
@@ -112,13 +157,13 @@ class _SomeCheckboxState extends State<SomeCheckbox> {
 // Один чекбокс с обязательным параметром названия добавки.
 class OneCheckbox extends StatefulWidget {
   final String additives;
-  const OneCheckbox({super.key, required this.additives});
+  const OneCheckbox({Key? key, required this.additives}) : super(key: key);
 
   @override
-  State<OneCheckbox> createState() => _OneCheckboxState();
+  State<OneCheckbox> createState() => OneCheckboxState();
 }
 
-class _OneCheckboxState extends State<OneCheckbox> {
+class OneCheckboxState extends State<OneCheckbox> {
   bool isChecked = false;
   @override
   Widget build(BuildContext context) {

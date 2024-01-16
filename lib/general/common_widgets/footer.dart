@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fresh_kebab/general/contacts.dart';
 import 'package:fresh_kebab/general/menu/menu.dart';
-import 'package:fresh_kebab/general/vacancy.dart';
+import 'package:fresh_kebab/general/vacancy/vacancy.dart';
 
 class Footer extends StatelessWidget {
   const Footer({super.key});

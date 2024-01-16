@@ -6,63 +6,63 @@ class FullMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return const SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            TitleForCards(title: 'Пицца', key: UniqueKey()),
-            const GridViewForCards(
+            TitleForCards(title: 'Пицца'),
+            GridViewForCards(
               card: pizzaCards,
               myHeight: 595,
             ),
-            TitleForCards(title: 'Фри-меню', key: UniqueKey()),
-            const GridViewForCards(
+            TitleForCards(title: 'Фри-меню'),
+            GridViewForCards(
               card: friesCards,
               myHeight: 330,
             ),
-            TitleForCards(title: 'Напитки', key: UniqueKey()),
-            const GridViewForCards(
+            TitleForCards(title: 'Напитки'),
+            GridViewForCards(
               card: drinksCards,
               myHeight: 370,
             ),
-            TitleForCards(title: 'Молочные коктейли', key: UniqueKey()),
-            const GridViewForCards(
+            TitleForCards(title: 'Молочные коктейли'),
+            GridViewForCards(
               card: cocktailsCards,
               myHeight: 440,
             ),
-            TitleForCards(title: 'Шаурма', key: UniqueKey()),
-            const GridViewForCards(
+            TitleForCards(title: 'Шаурма'),
+            GridViewForCards(
               card: shawarmaCards,
               myHeight: 485,
             ),
-            TitleForCards(title: 'Бургеры', key: UniqueKey()),
-            const GridViewForCards(
+            TitleForCards(title: 'Бургеры'),
+            GridViewForCards(
               card: burgersCards,
               myHeight: 580,
             ),
-            TitleForCards(title: 'Дёнер', key: UniqueKey()),
-            const GridViewForCards(
+            TitleForCards(title: 'Дёнер'),
+            GridViewForCards(
               card: donersCards,
               myHeight: 590,
             ),
-            TitleForCards(title: 'Горячие блюда', key: UniqueKey()),
-            const GridViewForCards(
+            TitleForCards(title: 'Горячие блюда'),
+            GridViewForCards(
               card: dishesCards,
               myHeight: 480,
             ),
-            TitleForCards(title: 'Салаты', key: UniqueKey()),
-            const GridViewForCards(
+            TitleForCards(title: 'Салаты'),
+            GridViewForCards(
               card: saladsCards,
               myHeight: 520,
             ),
-            TitleForCards(title: 'Выпечка', key: UniqueKey()),
-            const GridViewForCards(
+            TitleForCards(title: 'Выпечка'),
+            GridViewForCards(
               card: bakeryCards,
               myHeight: 450,
             ),
-            TitleForCards(title: 'Десерты', key: UniqueKey()),
-            const GridViewForCards(
+            TitleForCards(title: 'Десерты'),
+            GridViewForCards(
               card: dessertsCards,
               myHeight: 495,
             ),
@@ -73,6 +73,7 @@ class FullMenu extends StatelessWidget {
   }
 }
 
+// Заголовок для наименования товаров
 class TitleForCards extends StatelessWidget {
   final String title;
 
@@ -94,6 +95,7 @@ class TitleForCards extends StatelessWidget {
   }
 }
 
+// Размещение карточек товара на экране
 class GridViewForCards extends StatelessWidget {
   final List<Widget> card;
   final double myHeight;

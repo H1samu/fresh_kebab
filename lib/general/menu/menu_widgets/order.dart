@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fresh_kebab/general/menu/menu_widgets/data.dart';
 
-// Экран заказа пользователя
+// Экран заказа товаров пользователя (требует доработки)
 class Order extends StatefulWidget {
   const Order({super.key});
 
@@ -118,7 +118,7 @@ class _OrderState extends State<Order> {
                       maxLines: null,
                     ),
                     const SizedBox(height: 15),
-                    const OneCheckbox(),
+                    const OrderOneCheckbox(),
                     const SizedBox(height: 15),
                     const Text(
                       'Способ оплаты',
@@ -304,14 +304,14 @@ class PaymentMethodWidgetState extends State<TwoRadio> {
   }
 }
 
-class OneCheckbox extends StatefulWidget {
-  const OneCheckbox({Key? key}) : super(key: key);
+class OrderOneCheckbox extends StatefulWidget {
+  const OrderOneCheckbox({Key? key}) : super(key: key);
 
   @override
-  State<OneCheckbox> createState() => _OneCheckboxState();
+  State<OrderOneCheckbox> createState() => _OrderOneCheckboxState();
 }
 
-class _OneCheckboxState extends State<OneCheckbox> {
+class _OrderOneCheckboxState extends State<OrderOneCheckbox> {
   bool isChecked = false;
   @override
   Widget build(BuildContext context) {

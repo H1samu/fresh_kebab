@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_kebab/general/menu/menu_widgets/order.dart';
+import 'package:fresh_kebab/general/menu/menu_widgets/additives.dart';
 
 // Используется под Пиццу, Бургеры, Дёнер, Салаты, Выпечка, Десерты. Высота контейнера по умолчанию 570 (можно менять), Заполнение картинки fit: BoxFit.cover.
 class ProductCard extends StatelessWidget {
@@ -74,28 +74,7 @@ class ProductCard extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 32),
             child: GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                    opaque: true,
-                    pageBuilder: (context, animation, secondaryAnimation) {
-                      return const Order();
-                    },
-                    transitionsBuilder:
-                        (context, animation, secondaryAnimation, child) {
-                      const begin = Offset(0.0, 1.0);
-                      const end = Offset.zero;
-                      const curve = Curves.easeInOut;
-                      var tween = Tween(begin: begin, end: end)
-                          .chain(CurveTween(curve: curve));
-                      var offsetAnimation = animation.drive(tween);
-                      return SlideTransition(
-                          position: offsetAnimation, child: child);
-                    },
-                  ),
-                );
-              },
+              onTap: () {},
               child: const Text(
                 'В корзину',
                 textAlign: TextAlign.center,
@@ -183,28 +162,7 @@ class ProductCardSmall extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 32),
               child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    PageRouteBuilder(
-                      opaque: true,
-                      pageBuilder: (context, animation, secondaryAnimation) {
-                        return const Order();
-                      },
-                      transitionsBuilder:
-                          (context, animation, secondaryAnimation, child) {
-                        const begin = Offset(0.0, 1.0);
-                        const end = Offset.zero;
-                        const curve = Curves.easeInOut;
-                        var tween = Tween(begin: begin, end: end)
-                            .chain(CurveTween(curve: curve));
-                        var offsetAnimation = animation.drive(tween);
-                        return SlideTransition(
-                            position: offsetAnimation, child: child);
-                      },
-                    ),
-                  );
-                },
+                onTap: () {},
                 child: const Text(
                   'В корзину',
                   textAlign: TextAlign.center,
@@ -295,28 +253,7 @@ class ProductCardLong extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 32),
               child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    PageRouteBuilder(
-                      opaque: true,
-                      pageBuilder: (context, animation, secondaryAnimation) {
-                        return const Order();
-                      },
-                      transitionsBuilder:
-                          (context, animation, secondaryAnimation, child) {
-                        const begin = Offset(0.0, 1.0);
-                        const end = Offset.zero;
-                        const curve = Curves.easeInOut;
-                        var tween = Tween(begin: begin, end: end)
-                            .chain(CurveTween(curve: curve));
-                        var offsetAnimation = animation.drive(tween);
-                        return SlideTransition(
-                            position: offsetAnimation, child: child);
-                      },
-                    ),
-                  );
-                },
+                onTap: () {},
                 child: const Text(
                   'В корзину',
                   textAlign: TextAlign.center,
@@ -414,12 +351,27 @@ class ProductCardShawarma extends StatelessWidget {
               border: Border.all(color: const Color(0xffcc3333), width: 2),
               borderRadius: const BorderRadius.all(Radius.circular(30)),
             ),
-            child: const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 13),
-              child: Text(
-                'Выбрать добавки',
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Color(0xffcc3333), fontSize: 13),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 13),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Additives(
+                        setting: SomeCheckbox(
+                          chikenOrbeef:
+                              OneCheckbox(additives: 'Больше говядины'),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+                child: const Text(
+                  'Выбрать добавки',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Color(0xffcc3333), fontSize: 13),
+                ),
               ),
             ),
           )
