@@ -346,28 +346,27 @@ class ProductCardShawarma extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: const Color(0xffcc3333), width: 2),
-              borderRadius: const BorderRadius.all(Radius.circular(30)),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 13),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Additives(
-                        setting: SomeCheckbox(
-                          chikenOrbeef:
-                              OneCheckbox(additives: 'Больше говядины'),
-                        ),
-                      ),
+          GestureDetector(
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return const Additives(
+                    setting: SomeCheckbox(
+                      chikenOrbeef: OneCheckbox(additives: 'Больше говядины'),
                     ),
                   );
                 },
-                child: const Text(
+              );
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: const Color(0xffcc3333), width: 2),
+                borderRadius: const BorderRadius.all(Radius.circular(30)),
+              ),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 13),
+                child: Text(
                   'Выбрать добавки',
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Color(0xffcc3333), fontSize: 13),
