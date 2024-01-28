@@ -365,7 +365,7 @@ class ProductCardShawarma extends StatelessWidget {
                 borderRadius: const BorderRadius.all(Radius.circular(30)),
               ),
               child: const Padding(
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 13),
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 11),
                 child: Text(
                   'Выбрать добавки',
                   textAlign: TextAlign.center,

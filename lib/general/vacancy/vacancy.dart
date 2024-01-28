@@ -11,21 +11,19 @@ class VacancyMain extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     Widget content = screenWidth <= 705 ? vacancyMobile() : vacancyTablet();
-    return MaterialApp(
-      home: Scaffold(
-        body: Container(
-          color: Colors.white,
-          child: ListView(
-            children: [
-              Column(
-                children: [
-                  const SlaveHeader(),
-                  content,
-                ],
-              ),
-              const Footer()
-            ],
-          ),
+    return Scaffold(
+      body: Container(
+        color: Colors.white,
+        child: ListView(
+          children: [
+            Column(
+              children: [
+                const SlaveHeader(),
+                content,
+              ],
+            ),
+            const SlaveFooter()
+          ],
         ),
       ),
     );

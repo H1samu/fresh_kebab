@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_kebab/general/contacts.dart';
-import 'package:fresh_kebab/general/menu/menu.dart';
-import 'package:fresh_kebab/general/vacancy/vacancy.dart';
 
-class Footer extends StatelessWidget {
-  const Footer({super.key});
+class MasterFooter extends StatelessWidget {
+  const MasterFooter({super.key});
 
   @override
   Widget build(BuildContext context) {
+    const style = TextStyle(color: Colors.white, fontSize: 11);
     return Column(
       children: [
         Container(
@@ -18,12 +16,7 @@ class Footer extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const MenuMain(),
-                    ),
-                  );
+                  Navigator.of(context).pushNamed('/menu_main');
                 },
                 child: Image.asset(
                   'assets/images/logos/fk_border.png',
@@ -40,13 +33,10 @@ class Footer extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        FooterText(
-                            textFooter: "Тел. доставки +7 (3412) 22-23-33"),
-                        FooterText(textFooter: "Доставка с 9:00 до 23:00"),
-                        FooterText(textFooter: "Стоимость доставки 100 рублей"),
-                        SizedBox(height: 10),
-                        FooterText(textFooter: "Доставка от 500 рублей"),
-                        SizedBox(height: 10),
+                        Text('Тел. доставки +7 (3412) 22-23-33', style: style),
+                        Text('Доставка с 9:00 до 23:00', style: style),
+                        Text('Стоимость доставки 100 рублей', style: style),
+                        Text('Доставка от 500 рублей', style: style),
                       ],
                     ),
                   ),
@@ -59,12 +49,7 @@ class Footer extends StatelessWidget {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const ContactsMain(),
-                              ),
-                            );
+                            Navigator.of(context).pushNamed('/contacts');
                           },
                           child: const Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -85,12 +70,7 @@ class Footer extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const VacancyMain(),
-                              ),
-                            );
+                            Navigator.of(context).pushNamed('/vac');
                           },
                           child: const Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -145,15 +125,74 @@ class Footer extends StatelessWidget {
   }
 }
 
-class FooterText extends StatelessWidget {
-  final String textFooter;
-  const FooterText({super.key, required this.textFooter});
+// Футер для экранов Контакты и Вакансии
+class SlaveFooter extends StatelessWidget {
+  const SlaveFooter({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      textFooter,
-      style: const TextStyle(color: Colors.white, fontSize: 11),
+    const style = TextStyle(color: Colors.white, fontSize: 11);
+    return Column(
+      children: [
+        Container(
+          decoration: const BoxDecoration(color: Color(0xff028f52)),
+          height: 150,
+          width: double.infinity,
+          child: Column(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Image.asset(
+                  'assets/images/logos/fk_border.png',
+                  width: 150,
+                  height: 60,
+                ),
+              ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text('Тел. доставки +7 (3412) 22-23-33', style: style),
+                        Text('Доставка с 9:00 до 23:00', style: style),
+                        Text('Стоимость доставки 100 рублей', style: style),
+                        Text('Доставка от 500 рублей', style: style),
+                      ],
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+        Container(
+          height: 1,
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            color: Color(0xfffdfff5),
+          ),
+        ),
+        Container(
+          height: 30,
+          width: double.infinity,
+          decoration: const BoxDecoration(color: Color(0xff028f52)),
+          child: const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Fresh Kebab © 2023",
+                style: TextStyle(color: Color(0xff77c3a2), fontSize: 12),
+              ),
+            ],
+          ),
+        )
+      ],
     );
   }
 }

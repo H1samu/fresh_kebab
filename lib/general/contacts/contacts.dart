@@ -10,21 +10,19 @@ class ContactsMain extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     Widget content = screenWidth <= 550 ? contactsMobile() : contactsTablet();
-    return MaterialApp(
-      home: Scaffold(
-        body: Container(
-          color: Colors.white,
-          child: ListView(
-            children: [
-              Column(
-                children: [
-                  const SlaveHeader(),
-                  content,
-                ],
-              ),
-              const Footer()
-            ],
-          ),
+    return Scaffold(
+      body: Container(
+        color: Colors.white,
+        child: ListView(
+          children: [
+            Column(
+              children: [
+                const SlaveHeader(),
+                content,
+              ],
+            ),
+            const SlaveFooter()
+          ],
         ),
       ),
     );

@@ -24,7 +24,7 @@ class _MobileScaffoldState extends State<MenuMain> {
       body: ListView(
         children: const [
           FullMenu(),
-          Footer(),
+          MasterFooter(),
         ],
       ),
     );
