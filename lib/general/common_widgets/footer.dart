@@ -5,7 +5,7 @@ class MasterFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const style = TextStyle(color: Colors.white, fontSize: 11);
+    const textStyle = TextStyle(color: Colors.white, fontSize: 11);
     return Column(
       children: [
         Container(
@@ -33,10 +33,11 @@ class MasterFooter extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Тел. доставки +7 (3412) 22-23-33', style: style),
-                        Text('Доставка с 9:00 до 23:00', style: style),
-                        Text('Стоимость доставки 100 рублей', style: style),
-                        Text('Доставка от 500 рублей', style: style),
+                        Text('Тел. доставки +7 (3412) 22-23-33',
+                            style: textStyle),
+                        Text('Доставка с 9:00 до 23:00', style: textStyle),
+                        Text('Стоимость доставки 100 рублей', style: textStyle),
+                        Text('Доставка от 500 рублей', style: textStyle),
                       ],
                     ),
                   ),
@@ -114,7 +115,7 @@ class MasterFooter extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Fresh Kebab © 2023",
+                "Fresh Kebab © 2024",
                 style: TextStyle(color: Color(0xff77c3a2), fontSize: 12),
               ),
             ],
@@ -131,7 +132,7 @@ class SlaveFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const style = TextStyle(color: Colors.white, fontSize: 11);
+    const textStyle = TextStyle(color: Colors.white, fontSize: 11);
     return Column(
       children: [
         Container(
@@ -159,10 +160,11 @@ class SlaveFooter extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text('Тел. доставки +7 (3412) 22-23-33', style: style),
-                        Text('Доставка с 9:00 до 23:00', style: style),
-                        Text('Стоимость доставки 100 рублей', style: style),
-                        Text('Доставка от 500 рублей', style: style),
+                        Text('Тел. доставки +7 (3412) 22-23-33',
+                            style: textStyle),
+                        Text('Доставка с 9:00 до 23:00', style: textStyle),
+                        Text('Стоимость доставки 100 рублей', style: textStyle),
+                        Text('Доставка от 500 рублей', style: textStyle),
                       ],
                     ),
                   ),
@@ -186,7 +188,7 @@ class SlaveFooter extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Fresh Kebab © 2023",
+                "Fresh Kebab © 2024",
                 style: TextStyle(color: Color(0xff77c3a2), fontSize: 12),
               ),
             ],

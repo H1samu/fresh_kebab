@@ -66,7 +66,7 @@ class _FloatingButtonState extends State<FloatingButton> {
             height: 25,
             width: 25,
             child: const Text(
-              '10',
+              '0',
               style: TextStyle(color: Colors.white),
             ),
           ),

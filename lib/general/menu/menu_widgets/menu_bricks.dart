@@ -6,8 +6,10 @@ class FullMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      child: Padding(
+    final controller = ScrollController();
+    return SingleChildScrollView(
+      controller: controller,
+      child: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
