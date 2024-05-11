@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_kebab/general/common_widgets/footer.dart';
-import 'package:fresh_kebab/general/common_widgets/header.dart';
+import 'package:fresh_kebab/screens/common_widgets/footer.dart';
+import 'package:fresh_kebab/screens/common_widgets/header.dart';
 
 // На место плесхолдера нужно бахнуть карты яндекс
 class ContactsMain extends StatelessWidget {

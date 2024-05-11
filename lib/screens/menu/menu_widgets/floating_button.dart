@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_kebab/general/menu/menu_widgets/order.dart';
+import 'package:fresh_kebab/screens/menu/menu_widgets/order.dart';
 
 class FloatingButton extends StatefulWidget {
   const FloatingButton({super.key});

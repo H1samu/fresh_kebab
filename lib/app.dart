@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_kebab/general/contacts/contacts.dart';
-import 'package:fresh_kebab/general/menu/menu.dart';
-import 'package:fresh_kebab/general/vacancy/vacancy.dart';
+import 'package:fresh_kebab/screens/contacts/contacts.dart';
+import 'package:fresh_kebab/screens/menu/menu.dart';
+import 'package:fresh_kebab/screens/vacancy/vacancy.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -16,7 +16,6 @@ class App extends StatelessWidget {
         '/vac': (context) => const VacancyMain(),
         '/contacts': (context) => const ContactsMain()
       },
-      initialRoute: '/menu_main',
     );
   }
 }

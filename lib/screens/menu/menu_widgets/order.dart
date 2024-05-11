@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_kebab/general/menu/menu_widgets/data.dart';
+import 'package:fresh_kebab/screens/menu/menu_widgets/data.dart';
 
 // Экран заказа товаров пользователя (требует доработки)
 class Order extends StatefulWidget {

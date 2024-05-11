@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Футер для экрана Меню
 class MasterFooter extends StatelessWidget {
   const MasterFooter({super.key});
 

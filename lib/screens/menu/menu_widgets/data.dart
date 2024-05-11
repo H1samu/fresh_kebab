@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_kebab/general/menu/menu_widgets/product_card.dart';
+import 'package:fresh_kebab/screens/menu/menu_widgets/product_card.dart';
 
 // Данные с позициями для меню
 const List<Widget> pizzaCards = [

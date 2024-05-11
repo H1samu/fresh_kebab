@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_kebab/general/menu/menu_widgets/additives.dart';
+import 'package:fresh_kebab/screens/menu/menu_widgets/additives.dart';
 
 // Используется под Пиццу, Бургеры, Дёнер, Салаты, Выпечка, Десерты. Высота контейнера по умолчанию 570 (можно менять), Заполнение картинки fit: BoxFit.cover.
 class ProductCard extends StatelessWidget {
