@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  geolocator: ^11.0.0
+  yandex_mapkit: ^4.0.2
 
 dev_dependencies:
   flutter_test:

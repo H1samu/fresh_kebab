@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fresh_kebab/screens/common_widgets/footer.dart';
 import 'package:fresh_kebab/screens/common_widgets/header.dart';
+import 'package:fresh_kebab/screens/contacts/map/map_screen/map_screen.dart';
 
 // На место плесхолдера нужно бахнуть карты яндекс
 class ContactsMain extends StatelessWidget {
@@ -35,10 +36,7 @@ Widget contactsMobile() {
     padding: const EdgeInsets.symmetric(horizontal: 20),
     child: Column(
       children: [
-        const Placeholder(
-          fallbackHeight: 300,
-          fallbackWidth: double.infinity,
-        ),
+        SizedBox(height: 300, width: double.infinity, child: MapScreen()),
         const SizedBox(height: 40),
         Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -100,10 +98,7 @@ Widget contactsTablet() {
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Placeholder(
-          fallbackHeight: 450,
-          fallbackWidth: 300,
-        ),
+        SizedBox(height: 450, width: 300, child: MapScreen()),
         const SizedBox(height: 40),
         Padding(
           padding: const EdgeInsets.only(left: 20),
