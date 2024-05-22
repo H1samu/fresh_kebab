@@ -5,31 +5,29 @@ class _MyUrls {
   static final Uri vk = Uri.parse('https://vk.com/freshkebab');
   static final Uri inst =
       Uri.parse('https://www.instagram.com/freshkebab_official');
-  static const String phone = 'tel://+7 (3412) 22‒23‒33';
+  static const String phoneMain = 'tel://+7 (3412) 22‒23‒33';
+  static const String phoneNastya = 'tel://+7 (982) 124-54-55';
+  static const String phoneRenat = 'tel://+7 (912) 744-56-56';
 }
 
 class MyLaunch {
-  static Future<void> call() async {
-    if (await canLaunchUrlString(_MyUrls.phone)) {
-      await launchUrlString(_MyUrls.phone);
-    } else {
-      throw 'Could not launch ${_MyUrls.phone}';
-    }
+  static Future<void> callMain() async {
+    await launchUrlString(_MyUrls.phoneMain);
+  }
+
+  static Future<void> callNastya() async {
+    await launchUrlString(_MyUrls.phoneNastya);
+  }
+
+  static Future<void> callRenat() async {
+    await launchUrlString(_MyUrls.phoneRenat);
   }
 
   static Future<void> linkInst() async {
-    if (await canLaunchUrl(_MyUrls.inst)) {
-      await launchUrl(_MyUrls.inst);
-    } else {
-      throw 'Could not launch ${_MyUrls.inst}';
-    }
+    await launchUrl(_MyUrls.inst);
   }
 
   static Future<void> linkVk() async {
-    if (await canLaunchUrl(_MyUrls.vk)) {
-      await launchUrl(_MyUrls.vk);
-    } else {
-      throw 'Could not launch ${_MyUrls.vk}';
-    }
+    await launchUrl(_MyUrls.vk);
   }
 }

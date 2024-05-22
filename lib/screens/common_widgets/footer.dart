@@ -36,7 +36,7 @@ class MasterFooter extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         GestureDetector(
-                          onTap: () => MyLaunch.call(),
+                          onTap: () => MyLaunch.callMain(),
                           child: const Text('Тел. доставки +7 (3412) 22-23-33',
                               style: textStyle),
                         ),
@@ -168,7 +168,7 @@ class SlaveFooter extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         GestureDetector(
-                          onTap: () => MyLaunch.call(),
+                          onTap: () => MyLaunch.callMain(),
                           child: const Text('Тел. доставки +7 (3412) 22-23-33',
                               style: textStyle),
                         ),

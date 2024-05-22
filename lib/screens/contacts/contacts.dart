@@ -48,7 +48,7 @@ Widget contactsMobile() {
             ),
             const SizedBox(height: 35),
             GestureDetector(
-              onTap: () => MyLaunch.call(),
+              onTap: () => MyLaunch.callMain(),
               child: const Text(
                 "+7 (3412) 22-23-33",
                 style: TextStyle(
@@ -121,7 +121,7 @@ Widget contactsTablet() {
               ),
               const SizedBox(height: 35),
               GestureDetector(
-                onTap: () => MyLaunch.call(),
+                onTap: () => MyLaunch.callMain(),
                 child: const Text(
                   "+7 (3412) 22-23-33",
                   style: TextStyle(

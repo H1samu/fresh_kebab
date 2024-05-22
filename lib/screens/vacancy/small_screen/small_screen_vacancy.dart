@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_kebab/screens/common_widgets/url_launcher.dart';
 import 'package:fresh_kebab/screens/vacancy/vacancy_model/vacancy_model.dart';
 import 'package:fresh_kebab/screens/vacancy/vacancy_repository/vacancy_repository.dart';
 
@@ -60,10 +61,21 @@ Widget workerMobile(BuildContext context, WorkerModel item) {
           decoration: const BoxDecoration(
               color: Color(0xffcc3333),
               borderRadius: BorderRadius.all(Radius.circular(30))),
-          child: const Text(
-            "Позвонить",
-            style: TextStyle(
-                color: Colors.white, fontSize: 14, fontWeight: FontWeight.w700),
+          child: GestureDetector(
+            onTap: () {
+              if (item.textPost == 'Курьер') {
+                MyLaunch.callNastya();
+              } else {
+                MyLaunch.callRenat();
+              }
+            },
+            child: const Text(
+              "Позвонить",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w700),
+            ),
           ),
         ),
       ],
