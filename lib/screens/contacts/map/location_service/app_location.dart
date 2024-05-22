@@ -1,4 +1,4 @@
-import 'package:fresh_kebab/screens/contacts/map/model.dart';
+import 'package:fresh_kebab/screens/contacts/map/map_model/model.dart';
 
 abstract class AppLocation {
   Future<AppLatLong> getCurrentLocation();

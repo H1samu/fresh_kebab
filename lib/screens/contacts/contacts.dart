@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fresh_kebab/screens/common_widgets/footer.dart';
 import 'package:fresh_kebab/screens/common_widgets/header.dart';
+import 'package:fresh_kebab/screens/common_widgets/url_launcher.dart';
 import 'package:fresh_kebab/screens/contacts/map/map_screen/map_screen.dart';
 
-// На место плесхолдера нужно бахнуть карты яндекс
 class ContactsMain extends StatelessWidget {
   const ContactsMain({super.key});
 
@@ -36,7 +36,7 @@ Widget contactsMobile() {
     padding: const EdgeInsets.symmetric(horizontal: 20),
     child: Column(
       children: [
-        SizedBox(height: 300, width: double.infinity, child: MapScreen()),
+        const SizedBox(height: 300, width: double.infinity, child: MapScreen()),
         const SizedBox(height: 40),
         Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -47,12 +47,15 @@ Widget contactsMobile() {
               style: TextStyle(fontWeight: FontWeight.w500, fontSize: 30),
             ),
             const SizedBox(height: 35),
-            const Text(
-              "+7 (3412) 22-23-33",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w400,
-                color: Color(0xff028f52),
+            GestureDetector(
+              onTap: () => MyLaunch.call(),
+              child: const Text(
+                "+7 (3412) 22-23-33",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xff028f52),
+                ),
               ),
             ),
             const Text(
@@ -68,18 +71,24 @@ Widget contactsMobile() {
             const SizedBox(height: 50),
             Row(
               children: [
-                Image.asset(
-                  "assets/images/logos/vk.png",
-                  height: 30,
-                  width: 30,
-                  color: const Color(0xff028f52),
+                GestureDetector(
+                  onTap: () => MyLaunch.linkVk(),
+                  child: Image.asset(
+                    "assets/images/logos/vk.png",
+                    height: 30,
+                    width: 30,
+                    color: const Color(0xff028f52),
+                  ),
                 ),
                 const SizedBox(width: 5),
-                Image.asset(
-                  "assets/images/logos/inst.png",
-                  height: 25,
-                  width: 25,
-                  color: const Color(0xff028f52),
+                GestureDetector(
+                  onTap: () => MyLaunch.linkInst(),
+                  child: Image.asset(
+                    "assets/images/logos/inst.png",
+                    height: 25,
+                    width: 25,
+                    color: const Color(0xff028f52),
+                  ),
                 ),
               ],
             ),
@@ -98,7 +107,7 @@ Widget contactsTablet() {
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 450, width: 300, child: MapScreen()),
+        const SizedBox(height: 450, width: 300, child: MapScreen()),
         const SizedBox(height: 40),
         Padding(
           padding: const EdgeInsets.only(left: 20),
@@ -111,12 +120,15 @@ Widget contactsTablet() {
                 style: TextStyle(fontWeight: FontWeight.w500, fontSize: 30),
               ),
               const SizedBox(height: 35),
-              const Text(
-                "+7 (3412) 22-23-33",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xff028f52),
+              GestureDetector(
+                onTap: () => MyLaunch.call(),
+                child: const Text(
+                  "+7 (3412) 22-23-33",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xff028f52),
+                  ),
                 ),
               ),
               const Text(
@@ -136,18 +148,24 @@ Widget contactsTablet() {
               const SizedBox(height: 50),
               Row(
                 children: [
-                  Image.asset(
-                    "assets/images/logos/vk.png",
-                    height: 30,
-                    width: 30,
-                    color: const Color(0xff028f52),
+                  GestureDetector(
+                    onTap: () => MyLaunch.linkVk(),
+                    child: Image.asset(
+                      "assets/images/logos/vk.png",
+                      height: 30,
+                      width: 30,
+                      color: const Color(0xff028f52),
+                    ),
                   ),
                   const SizedBox(width: 5),
-                  Image.asset(
-                    "assets/images/logos/inst.png",
-                    height: 25,
-                    width: 25,
-                    color: const Color(0xff028f52),
+                  GestureDetector(
+                    onTap: () => MyLaunch.linkInst(),
+                    child: Image.asset(
+                      "assets/images/logos/inst.png",
+                      height: 25,
+                      width: 25,
+                      color: const Color(0xff028f52),
+                    ),
                   ),
                 ],
               )

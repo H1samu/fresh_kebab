@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_kebab/screens/common_widgets/url_launcher.dart';
 
 // Футер для экрана Меню
 class MasterFooter extends StatelessWidget {
@@ -29,16 +30,21 @@ class MasterFooter extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(left: 20),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Тел. доставки +7 (3412) 22-23-33',
+                        GestureDetector(
+                          onTap: () => MyLaunch.call(),
+                          child: const Text('Тел. доставки +7 (3412) 22-23-33',
+                              style: textStyle),
+                        ),
+                        const Text('Доставка с 9:00 до 23:00',
                             style: textStyle),
-                        Text('Доставка с 9:00 до 23:00', style: textStyle),
-                        Text('Стоимость доставки 100 рублей', style: textStyle),
-                        Text('Доставка от 500 рублей', style: textStyle),
+                        const Text('Стоимость доставки 100 рублей',
+                            style: textStyle),
+                        const Text('Доставка от 500 рублей', style: textStyle),
                       ],
                     ),
                   ),
@@ -152,20 +158,25 @@ class SlaveFooter extends StatelessWidget {
                   height: 60,
                 ),
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(left: 20),
+                    padding: const EdgeInsets.only(left: 20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text('Тел. доставки +7 (3412) 22-23-33',
+                        GestureDetector(
+                          onTap: () => MyLaunch.call(),
+                          child: const Text('Тел. доставки +7 (3412) 22-23-33',
+                              style: textStyle),
+                        ),
+                        const Text('Доставка с 9:00 до 23:00',
                             style: textStyle),
-                        Text('Доставка с 9:00 до 23:00', style: textStyle),
-                        Text('Стоимость доставки 100 рублей', style: textStyle),
-                        Text('Доставка от 500 рублей', style: textStyle),
+                        const Text('Стоимость доставки 100 рублей',
+                            style: textStyle),
+                        const Text('Доставка от 500 рублей', style: textStyle),
                       ],
                     ),
                   ),

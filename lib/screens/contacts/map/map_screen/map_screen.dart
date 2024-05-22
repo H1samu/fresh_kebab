@@ -3,8 +3,9 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:fresh_kebab/screens/contacts/map/location_service.dart';
-import 'package:fresh_kebab/screens/contacts/map/model.dart';
+import 'package:fresh_kebab/screens/contacts/map/location_service/location_service.dart';
+import 'package:fresh_kebab/screens/contacts/map/map_model/model.dart';
+import 'package:fresh_kebab/screens/contacts/map/marks_on_map/marks.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
 
 class MapScreen extends StatefulWidget {
@@ -29,9 +30,10 @@ class _MapScreenState extends State<MapScreen> {
       gestureRecognizers: {
         Factory<OneSequenceGestureRecognizer>(() => EagerGestureRecognizer()),
       },
-      onMapCreated: (controller) {
+      onMapCreated: (controller) async {
         mapControllerCompleter.complete(controller);
       },
+      mapObjects: getPlacemarkObjects(context),
     );
   }
 
@@ -52,7 +54,7 @@ class _MapScreenState extends State<MapScreen> {
     } catch (_) {
       location = defLocation;
     }
-    _moveToCurrentLocation(location);
+    await _moveToCurrentLocation(location);
   }
 
   /// Метод для показа текущей позиции

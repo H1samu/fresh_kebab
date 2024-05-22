@@ -54,7 +54,7 @@ class MenuMainState extends State<MenuMain> {
         if (scrollController.offset >= (position.dy - initialItemPosition.dy)) {
           DefaultTabController.of(tabContext!).animateTo(
             i,
-            duration: const Duration(milliseconds: 500),
+            duration: const Duration(milliseconds: 200),
           );
         }
       }
