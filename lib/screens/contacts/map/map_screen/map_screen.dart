@@ -3,9 +3,8 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:fresh_kebab/screens/contacts/map/location_service/location_service.dart';
-import 'package:fresh_kebab/screens/contacts/map/map_model/model.dart';
-import 'package:fresh_kebab/screens/contacts/map/marks_on_map/marks.dart';
+import 'package:fresh_kebab/screens/contacts/map/default_position_on_map/izhevsk_coordinates.dart';
+import 'package:fresh_kebab/screens/contacts/map/map_points/map_point.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
 
 class MapScreen extends StatefulWidget {
@@ -21,7 +20,7 @@ class _MapScreenState extends State<MapScreen> {
   @override
   void initState() {
     super.initState();
-    _initPermission().ignore();
+    _moveToCurrentLocation(const IzhevskLocation());
   }
 
   @override
@@ -35,26 +34,6 @@ class _MapScreenState extends State<MapScreen> {
       },
       mapObjects: getPlacemarkObjects(context),
     );
-  }
-
-  /// Проверка разрешений на доступ к геопозиции пользователя
-  Future<void> _initPermission() async {
-    if (!await LocationService().checkPermission()) {
-      await LocationService().requestPermission();
-    }
-    await _fetchCurrentLocation();
-  }
-
-  /// Получение текущей геопозиции пользователя
-  Future<void> _fetchCurrentLocation() async {
-    AppLatLong location;
-    const defLocation = IzhevskLocation();
-    try {
-      location = await LocationService().getCurrentLocation();
-    } catch (_) {
-      location = defLocation;
-    }
-    await _moveToCurrentLocation(location);
   }
 
   /// Метод для показа текущей позиции

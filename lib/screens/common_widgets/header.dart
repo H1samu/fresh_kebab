@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_kebab/screens/common_widgets/url_launcher.dart';
 
 class SlaveHeader extends StatelessWidget {
   const SlaveHeader({super.key});
@@ -62,7 +63,10 @@ class HeaderInfo extends StatelessWidget {
                   ]),
             ),
             const SizedBox(height: 5),
-            const Text('Телефон: 222-333', style: TextStyle(fontSize: 11))
+            GestureDetector(
+                onTap: () => MyLaunch.callMain(),
+                child: const Text('Телефон: 222-333',
+                    style: TextStyle(fontSize: 11)))
           ],
         ),
       ],

@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:fresh_kebab/screens/contacts/map/map_points/coordinates_of_points.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
 
 class MapPoint extends Equatable {
@@ -17,16 +18,6 @@ class MapPoint extends Equatable {
 
   @override
   List<Object?> get props => [name, latitude, longitude];
-}
-
-List<MapPoint> getMapPoints() {
-  return const [
-    MapPoint(name: 'Азина', latitude: 56.805091, longitude: 53.166152),
-    MapPoint(name: 'Пушкинская', latitude: 56.840355, longitude: 53.215173),
-    MapPoint(name: 'Дзержинского', latitude: 56.883533, longitude: 53.248645),
-    MapPoint(name: 'Клубная', latitude: 56.831339, longitude: 53.150297),
-    MapPoint(name: 'Баранова', latitude: 56.832935, longitude: 53.124390),
-  ];
 }
 
 List<PlacemarkMapObject> getPlacemarkObjects(BuildContext context) {
@@ -50,12 +41,4 @@ List<PlacemarkMapObject> getPlacemarkObjects(BuildContext context) {
       );
     },
   ).toList();
-}
-
-class UnionMarks extends ClusterizedPlacemarkCollection {
-  UnionMarks(
-      {required super.mapId,
-      required super.placemarks,
-      required super.radius,
-      required super.minZoom});
 }

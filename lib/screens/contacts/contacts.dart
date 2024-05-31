@@ -1,8 +1,13 @@
+import 'dart:io' show Platform;
+import 'package:flutter/foundation.dart' show kIsWeb;
+
 import 'package:flutter/material.dart';
 import 'package:fresh_kebab/screens/common_widgets/footer.dart';
 import 'package:fresh_kebab/screens/common_widgets/header.dart';
 import 'package:fresh_kebab/screens/common_widgets/url_launcher.dart';
 import 'package:fresh_kebab/screens/contacts/map/map_screen/map_screen.dart';
+
+bool isMobile = !kIsWeb && (Platform.isAndroid || Platform.isIOS);
 
 class ContactsMain extends StatelessWidget {
   const ContactsMain({super.key});
@@ -36,7 +41,11 @@ Widget contactsMobile() {
     padding: const EdgeInsets.symmetric(horizontal: 20),
     child: Column(
       children: [
-        const SizedBox(height: 300, width: double.infinity, child: MapScreen()),
+        SizedBox(
+          height: 300,
+          width: double.infinity,
+          child: (isMobile ? const MapScreen() : const Placeholder()),
+        ),
         const SizedBox(height: 40),
         Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -107,7 +116,11 @@ Widget contactsTablet() {
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(height: 450, width: 300, child: MapScreen()),
+        SizedBox(
+          height: 450,
+          width: 300,
+          child: (isMobile ? const MapScreen() : const Placeholder()),
+        ),
         const SizedBox(height: 40),
         Padding(
           padding: const EdgeInsets.only(left: 20),
