@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 /* 
 Дабы не запутаться в дальнейшем. Например, путь в карточке шаурмы с говядиной будет такой: 
@@ -134,19 +135,50 @@ class SomeCheckboxState extends State<SomeCheckbox> {
           additives: 'Аджика (+30 ₽)',
         ),
         const OneCheckbox(
+          additives: 'Больше соуса (+45 ₽)',
+        ),
+        const OneCheckbox(
+          additives: 'Грибы жареные (+50 ₽)',
+        ),
+        const OneCheckbox(
+          additives: 'Картофель фри (+50 ₽)',
+        ),
+        const OneCheckbox(
+          additives: 'Лук маринованный (+30 ₽)',
+        ),
+        const OneCheckbox(
+          additives: 'Морковь по-корейски (+50 ₽)',
+        ),
+        const OneCheckbox(
+          additives:
+              'Овощной салат (капуста, морковь, огурцы, помидоры) (+70 ₽)',
+        ),
+        const OneCheckbox(
+          additives: 'Огурцы маринованные (+30 ₽)',
+        ),
+        const OneCheckbox(
+          additives: 'Огурцы свежие (+30 ₽)',
+        ),
+        const OneCheckbox(
           additives: 'Оливки (+30 ₽)',
         ),
         const OneCheckbox(
+          additives: 'Помидоры (+30 ₽)',
+        ),
+        const OneCheckbox(
+          additives: 'Растительное мясо (+220 ₽)',
+        ),
+        const OneCheckbox(
+          additives: 'Сыр Моцарелла (+50 ₽)',
+        ),
+        const OneCheckbox(
+          additives: 'Сыр Брынза (+50 ₽)',
+        ),
+        const OneCheckbox(
+          additives: 'Сыр Голландский (+50 ₽)',
+        ),
+        const OneCheckbox(
           additives: 'Халапеньо (+30 ₽)',
-        ),
-        const OneCheckbox(
-          additives: 'Морковь по-корейски (+45 ₽)',
-        ),
-        const OneCheckbox(
-          additives: 'Картофель-фри (+45 ₽)',
-        ),
-        const OneCheckbox(
-          additives: 'Сыр Голладский (+45 ₽)',
         ),
         if (widget.chikenOrbeef != null) widget.chikenOrbeef!,
       ],
@@ -189,6 +221,98 @@ class OneCheckboxState extends State<OneCheckbox> {
                 color: Colors.black,
                 fontSize: 12,
               ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class RadioForDishes extends StatefulWidget {
+  final String radioName1;
+  final String radioName2;
+  final String radioName3;
+  const RadioForDishes(
+      {super.key,
+      required this.radioName1,
+      required this.radioName2,
+      required this.radioName3});
+
+  @override
+  State<RadioForDishes> createState() => _RadioForDishesState();
+}
+
+class _RadioForDishesState extends State<RadioForDishes> {
+  int? selectedValue;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedValue = 0;
+  }
+
+  TextStyle style = const TextStyle(fontSize: 9);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Radio(
+              activeColor: Colors.black,
+              splashRadius: 0,
+              value: 0,
+              groupValue: selectedValue,
+              onChanged: (value) {
+                setState(() {
+                  selectedValue = value;
+                });
+              },
+            ),
+            Text(
+              widget.radioName1,
+              style: style,
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            Radio(
+              activeColor: Colors.black,
+              splashRadius: 0,
+              value: 1,
+              groupValue: selectedValue,
+              onChanged: (value) {
+                setState(() {
+                  selectedValue = value;
+                });
+              },
+            ),
+            Text(
+              widget.radioName2,
+              style: style,
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            Radio(
+              activeColor: Colors.black,
+              splashRadius: 0,
+              value: 2,
+              groupValue: selectedValue,
+              onChanged: (value) {
+                setState(() {
+                  selectedValue = value;
+                });
+              },
+            ),
+            Text(
+              widget.radioName3,
+              style: style,
             ),
           ],
         ),

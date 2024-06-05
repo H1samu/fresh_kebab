@@ -106,6 +106,7 @@ class MenuMainState extends State<MenuMain> {
         labelColor: const Color(0xff028f52),
         indicatorColor: const Color(0xffcc3333),
         splashFactory: NoSplash.splashFactory,
+        overlayColor: WidgetStateColor.transparent,
         tabs: const [
           Tab(text: 'Пицца '),
           Tab(text: 'Фри-меню'),
@@ -160,12 +161,12 @@ class MenuMainState extends State<MenuMain> {
                 _titleForCards('Шаурма', 4),
                 const GridViewForCards(
                   card: shawarmaCards,
-                  myHeight: 485,
+                  myHeight: 500,
                 ),
                 _titleForCards('Бургеры', 5),
                 const GridViewForCards(
                   card: burgersCards,
-                  myHeight: 580,
+                  myHeight: 590,
                 ),
                 _titleForCards('Дёнер', 6),
                 const GridViewForCards(
@@ -175,7 +176,7 @@ class MenuMainState extends State<MenuMain> {
                 _titleForCards('Горячие блюда', 7),
                 const GridViewForCards(
                   card: dishesCards,
-                  myHeight: 480,
+                  myHeight: 600,
                 ),
                 _titleForCards('Салаты', 8),
                 const GridViewForCards(

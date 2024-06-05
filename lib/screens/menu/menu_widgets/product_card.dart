@@ -268,7 +268,7 @@ class ProductCardLong extends StatelessWidget {
   }
 }
 
-// Используется под Шаурму, шашлык (Нужно реализовать кнопку 'Выбрать добавки'). Особенности: Кнопка 'Выбрать добавки' вместо 'В корзину'
+// Используется под Шаурму (Нужно реализовать кнопку 'Выбрать добавки'). Особенности: Кнопка 'Выбрать добавки' вместо 'В корзину'
 class ProductCardShawarma extends StatelessWidget {
   final String imagePath;
   final String textTitle;
@@ -303,7 +303,7 @@ class ProductCardShawarma extends StatelessWidget {
           Text(textTitle,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                fontSize: 20,
+                fontSize: 19,
                 fontWeight: FontWeight.w300,
               )),
           const SizedBox(height: 15),
@@ -312,7 +312,7 @@ class ProductCardShawarma extends StatelessWidget {
               textDescription!,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                fontSize: 13.5,
+                fontSize: 13,
                 fontWeight: FontWeight.w200,
                 height: 1.5,
               ),
@@ -351,9 +351,12 @@ class ProductCardShawarma extends StatelessWidget {
               showDialog(
                 context: context,
                 builder: (BuildContext context) {
-                  return const Additives(
+                  return Additives(
                     setting: SomeCheckbox(
-                      chikenOrbeef: OneCheckbox(additives: 'Больше говядины'),
+                      chikenOrbeef: OneCheckbox(
+                          additives: textTitle.contains('говядина')
+                              ? 'Больше говядины (+220 ₽)'
+                              : 'Больше курицы (+160 ₽)'),
                     ),
                   );
                 },
@@ -368,6 +371,94 @@ class ProductCardShawarma extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 11),
                 child: Text(
                   'Выбрать добавки',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Color(0xffcc3333), fontSize: 13),
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class ProductCardKebab extends StatefulWidget {
+  final String imagePath;
+  final String textTitle;
+  final String? textDescription;
+  final String textPrice;
+  const ProductCardKebab({
+    super.key,
+    required this.imagePath,
+    required this.textTitle,
+    this.textDescription,
+    required this.textPrice,
+  });
+
+  @override
+  State<ProductCardKebab> createState() => _ProductCardKebabState();
+}
+
+class _ProductCardKebabState extends State<ProductCardKebab> {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 150,
+      height: 480,
+      child: Column(
+        children: [
+          Image.asset(
+            widget.imagePath,
+            height: 150,
+            width: 150,
+            fit: BoxFit.cover,
+          ),
+          const SizedBox(height: 30),
+          Text(widget.textTitle,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w300,
+              )),
+          const SizedBox(height: 15),
+          if (widget.textDescription != null)
+            Text(
+              widget.textDescription!,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w200,
+                height: 1.5,
+              ),
+            ),
+          const Spacer(),
+          Text(
+            widget.textPrice,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w300,
+            ),
+          ),
+          const SizedBox(height: 8),
+          const RadioForDishes(
+            radioName1: 'Без лаваша',
+            radioName2: 'Обычный лаваш (+20 ₽)',
+            radioName3: 'Сырный лаваш (+40 ₽)',
+          ),
+          const SizedBox(height: 8),
+          Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: const Color(0xffcc3333), width: 2),
+              borderRadius: const BorderRadius.all(Radius.circular(30)),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 32),
+              child: GestureDetector(
+                onTap: () {},
+                child: const Text(
+                  'В корзину',
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Color(0xffcc3333), fontSize: 13),
                 ),
