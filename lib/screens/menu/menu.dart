@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_kebab/screens/menu/menu_widgets/data.dart';
 import 'package:fresh_kebab/screens/menu/menu_widgets/floating_button.dart';
 import 'package:fresh_kebab/screens/common_widgets/footer.dart';
 import 'package:fresh_kebab/screens/common_widgets/header.dart';
+import 'package:fresh_kebab/screens/menu/repository/menu_position_lists_mapping.dart';
 
 class MenuMain extends StatefulWidget {
   const MenuMain({Key? key}) : super(key: key);
@@ -139,57 +139,57 @@ class MenuMainState extends State<MenuMain> {
             child: Column(
               children: [
                 _titleForCards('Пицца', 0),
-                const GridViewForCards(
+                GridViewForCards(
                   card: pizzaCards,
-                  myHeight: 595,
+                  myHeight: 560,
                 ),
                 _titleForCards('Фри-меню', 1),
-                const GridViewForCards(
+                GridViewForCards(
                   card: friesCards,
-                  myHeight: 330,
+                  myHeight: 360,
                 ),
                 _titleForCards('Напитки', 2),
-                const GridViewForCards(
+                GridViewForCards(
                   card: drinksCards,
                   myHeight: 370,
                 ),
                 _titleForCards('Молочные коктейли', 3),
-                const GridViewForCards(
+                GridViewForCards(
                   card: cocktailsCards,
-                  myHeight: 440,
+                  myHeight: 460,
                 ),
                 _titleForCards('Шаурма', 4),
-                const GridViewForCards(
+                GridViewForCards(
                   card: shawarmaCards,
                   myHeight: 500,
                 ),
                 _titleForCards('Бургеры', 5),
-                const GridViewForCards(
+                GridViewForCards(
                   card: burgersCards,
                   myHeight: 590,
                 ),
                 _titleForCards('Дёнер', 6),
-                const GridViewForCards(
+                GridViewForCards(
                   card: donersCards,
                   myHeight: 590,
                 ),
                 _titleForCards('Горячие блюда', 7),
-                const GridViewForCards(
+                GridViewForCards(
                   card: dishesCards,
                   myHeight: 600,
                 ),
                 _titleForCards('Салаты', 8),
-                const GridViewForCards(
+                GridViewForCards(
                   card: saladsCards,
                   myHeight: 520,
                 ),
                 _titleForCards('Выпечка', 9),
-                const GridViewForCards(
+                GridViewForCards(
                   card: bakeryCards,
                   myHeight: 450,
                 ),
                 _titleForCards('Десерты', 10),
-                const GridViewForCards(
+                GridViewForCards(
                   card: dessertsCards,
                   myHeight: 495,
                 ),

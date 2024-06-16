@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_kebab/screens/menu/menu_widgets/additives.dart';
+import 'package:fresh_kebab/screens/menu/menu_widgets/additives/additives_main.dart';
+import 'package:fresh_kebab/screens/menu/menu_widgets/additives/additives_for_dishes.dart';
+import 'package:fresh_kebab/screens/menu/menu_widgets/additives/additives_for_shawarma.dart';
+import 'package:fresh_kebab/screens/menu/model/product_model.dart';
 
-// Используется под Пиццу, Бургеры, Дёнер, Салаты, Выпечка, Десерты. Высота контейнера по умолчанию 570 (можно менять), Заполнение картинки fit: BoxFit.cover.
+// Используется под Пиццу, Бургеры, Дёнер, Салаты, Выпечка, Десерты.
 class ProductCard extends StatelessWidget {
-  final String imagePath;
-  final String textTitle;
-  final String? textDescription;
-  final String textPrice;
-  final String textWeight;
+  final ProductModel model;
   const ProductCard({
     super.key,
-    required this.imagePath,
-    required this.textTitle,
-    this.textDescription,
-    required this.textPrice,
-    required this.textWeight,
+    required this.model,
   });
 
   @override
@@ -22,23 +17,23 @@ class ProductCard extends StatelessWidget {
     return Column(
       children: [
         Image.asset(
-          imagePath,
+          model.imagePath,
           height: 150,
           width: 150,
           fit: BoxFit.cover,
         ),
         const SizedBox(height: 30),
-        Text(textTitle,
+        Text(model.textTitle,
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w300,
             )),
         const SizedBox(height: 15),
-        if (textDescription != null)
+        if (model.textDescription != null)
           SizedBox(
             width: 150,
-            child: Text(textDescription!,
+            child: Text(model.textDescription!,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 15,
@@ -47,18 +42,19 @@ class ProductCard extends StatelessWidget {
                 ),
                 textWidthBasis: TextWidthBasis.parent),
           ),
-        Text(
-          textWeight,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            fontSize: 15,
-            fontWeight: FontWeight.w200,
-            height: 1.5,
+        if (model.textWeight != null)
+          Text(
+            model.textWeight!,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w200,
+              height: 1.5,
+            ),
           ),
-        ),
         const Spacer(),
         Text(
-          textPrice,
+          model.textPrice,
           textAlign: TextAlign.center,
           style: const TextStyle(
             fontSize: 20,
@@ -88,202 +84,12 @@ class ProductCard extends StatelessWidget {
   }
 }
 
-// Используется под Фри-меню. Особенности: Размер картинки 100х100, заполнение дефолтное
-class ProductCardSmall extends StatelessWidget {
-  final String imagePath;
-  final String textTitle;
-  final String? textDescription;
-  final String textPrice;
-  final String? textWeight;
-  const ProductCardSmall({
-    super.key,
-    required this.imagePath,
-    required this.textTitle,
-    this.textDescription,
-    required this.textPrice,
-    this.textWeight,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: 150,
-      height: 360,
-      child: Column(
-        children: [
-          Image.asset(
-            imagePath,
-            height: 100,
-            width: 100,
-          ),
-          const SizedBox(height: 30),
-          Text(textTitle,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 19,
-                fontWeight: FontWeight.w300,
-              )),
-          const SizedBox(height: 15),
-          if (textDescription != null)
-            Text(
-              textDescription!,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w200,
-                height: 1.5,
-              ),
-            ),
-          if (textWeight != null)
-            Text(
-              textWeight!,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w200,
-                height: 1.5,
-              ),
-            ),
-          const Spacer(),
-          Text(
-            textPrice,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w300,
-            ),
-          ),
-          const SizedBox(height: 8),
-          Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: const Color(0xffcc3333), width: 2),
-              borderRadius: const BorderRadius.all(Radius.circular(30)),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 32),
-              child: GestureDetector(
-                onTap: () {},
-                child: const Text(
-                  'В корзину',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Color(0xffcc3333), fontSize: 13),
-                ),
-              ),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-// Используется под Напитки и коктейли. Особенности: Размер картинки 140х140, заполнение дефолтное
-class ProductCardLong extends StatelessWidget {
-  final double containerHeight;
-  final String imagePath;
-  final String textTitle;
-  final String? textDescription;
-  final String textPrice;
-  final String? textWeight;
-  const ProductCardLong({
-    super.key,
-    required this.imagePath,
-    required this.textTitle,
-    this.textDescription,
-    required this.textPrice,
-    this.textWeight,
-    this.containerHeight = 350,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: 150,
-      height: containerHeight,
-      child: Column(
-        children: [
-          Image.asset(
-            imagePath,
-            height: 140,
-            width: 140,
-          ),
-          const SizedBox(height: 30),
-          Text(textTitle,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 19,
-                fontWeight: FontWeight.w300,
-              )),
-          const SizedBox(height: 15),
-          if (textDescription != null)
-            Text(
-              textDescription!,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w200,
-                height: 1.5,
-              ),
-            ),
-          if (textWeight != null)
-            Text(
-              textWeight!,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w200,
-                height: 1.5,
-              ),
-            ),
-          const Spacer(),
-          Text(
-            textPrice,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w300,
-            ),
-          ),
-          const SizedBox(height: 8),
-          Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: const Color(0xffcc3333), width: 2),
-              borderRadius: const BorderRadius.all(Radius.circular(30)),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 32),
-              child: GestureDetector(
-                onTap: () {},
-                child: const Text(
-                  'В корзину',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Color(0xffcc3333), fontSize: 13),
-                ),
-              ),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
 // Используется под Шаурму (Нужно реализовать кнопку 'Выбрать добавки'). Особенности: Кнопка 'Выбрать добавки' вместо 'В корзину'
 class ProductCardShawarma extends StatelessWidget {
-  final String imagePath;
-  final String textTitle;
-  final String? textDescription;
-  final String? textDescription2;
-  final String textPrice;
-  final String textWeight;
+  final ProductModel model;
   const ProductCardShawarma({
     super.key,
-    required this.imagePath,
-    required this.textTitle,
-    this.textDescription,
-    required this.textPrice,
-    required this.textWeight,
-    this.textDescription2,
+    required this.model,
   });
 
   @override
@@ -294,22 +100,22 @@ class ProductCardShawarma extends StatelessWidget {
       child: Column(
         children: [
           Image.asset(
-            imagePath,
+            model.imagePath,
             height: 150,
             width: 150,
             fit: BoxFit.cover,
           ),
           const SizedBox(height: 30),
-          Text(textTitle,
+          Text(model.textTitle,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 19,
                 fontWeight: FontWeight.w300,
               )),
           const SizedBox(height: 15),
-          if (textDescription != null)
+          if (model.textDescription != null)
             Text(
-              textDescription!,
+              model.textDescription!,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 13,
@@ -317,28 +123,19 @@ class ProductCardShawarma extends StatelessWidget {
                 height: 1.5,
               ),
             ),
-          if (textDescription2 != null)
+          if (model.textWeight != null)
             Text(
-              textDescription2!,
+              model.textWeight!,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                fontSize: 13.5,
+                fontSize: 15,
                 fontWeight: FontWeight.w200,
                 height: 1.5,
               ),
             ),
-          Text(
-            textWeight,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w200,
-              height: 1.5,
-            ),
-          ),
           const Spacer(),
           Text(
-            textPrice,
+            model.textPrice,
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontSize: 20,
@@ -351,14 +148,7 @@ class ProductCardShawarma extends StatelessWidget {
               showDialog(
                 context: context,
                 builder: (BuildContext context) {
-                  return Additives(
-                    setting: SomeCheckbox(
-                      chikenOrbeef: OneCheckbox(
-                          additives: textTitle.contains('говядина')
-                              ? 'Больше говядины (+220 ₽)'
-                              : 'Больше курицы (+160 ₽)'),
-                    ),
-                  );
+                  return choiceAddList();
                 },
               );
             },
@@ -381,19 +171,28 @@ class ProductCardShawarma extends StatelessWidget {
       ),
     );
   }
+
+  Additives choiceAddList() {
+    if ((model.textTitle != 'Ай-фреш')) {
+      if (model.textTitle == 'Вегетарианская') {
+        return Additives(additivesList: addListVegan);
+      } else if (model.textTitle.contains('BBQ')) {
+        return Additives(additivesList: addListBeef);
+      } else {
+        return Additives(additivesList: addListChicken);
+      }
+    } else {
+      return Additives(additivesList: addListShort);
+    }
+  }
 }
 
+// Используется под Горячие блюда. Особенности: Добавлениы радиобаттоны
 class ProductCardKebab extends StatefulWidget {
-  final String imagePath;
-  final String textTitle;
-  final String? textDescription;
-  final String textPrice;
+  final ProductModel model;
   const ProductCardKebab({
     super.key,
-    required this.imagePath,
-    required this.textTitle,
-    this.textDescription,
-    required this.textPrice,
+    required this.model,
   });
 
   @override
@@ -409,22 +208,22 @@ class _ProductCardKebabState extends State<ProductCardKebab> {
       child: Column(
         children: [
           Image.asset(
-            widget.imagePath,
+            widget.model.imagePath,
             height: 150,
             width: 150,
             fit: BoxFit.cover,
           ),
           const SizedBox(height: 30),
-          Text(widget.textTitle,
+          Text(widget.model.textTitle,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w300,
               )),
           const SizedBox(height: 15),
-          if (widget.textDescription != null)
+          if (widget.model.textDescription != null)
             Text(
-              widget.textDescription!,
+              widget.model.textDescription!,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 15,
@@ -434,7 +233,7 @@ class _ProductCardKebabState extends State<ProductCardKebab> {
             ),
           const Spacer(),
           Text(
-            widget.textPrice,
+            widget.model.textPrice,
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontSize: 20,

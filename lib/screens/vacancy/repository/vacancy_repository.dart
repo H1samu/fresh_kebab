@@ -1,4 +1,4 @@
-import 'package:fresh_kebab/screens/vacancy/vacancy_model/vacancy_model.dart';
+import 'package:fresh_kebab/screens/vacancy/model/vacancy_model.dart';
 
 class WorkRepository {
   static List<WorkerModel> courier = [

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fresh_kebab/screens/common_widgets/url_launcher.dart';
-import 'package:fresh_kebab/screens/vacancy/vacancy_model/vacancy_model.dart';
-import 'package:fresh_kebab/screens/vacancy/vacancy_repository/vacancy_repository.dart';
+import 'package:fresh_kebab/screens/vacancy/model/vacancy_model.dart';
+import 'package:fresh_kebab/screens/vacancy/repository/vacancy_repository.dart';
 
 Widget allVacancysMobile(BuildContext context) {
   return Column(
