@@ -174,7 +174,7 @@ class ProductCardShawarma extends StatelessWidget {
 
   Additives choiceAddList() {
     if ((model.textTitle != 'Ай-фреш')) {
-      if (model.textTitle == 'Вегетарианская') {
+      if (model.textTitle.contains('Вегетарианская')) {
         return Additives(additivesList: addListVegan);
       } else if (model.textTitle.contains('BBQ')) {
         return Additives(additivesList: addListBeef);
