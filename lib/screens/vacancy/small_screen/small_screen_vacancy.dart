@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_kebab/screens/common_widgets/constants.dart';
 import 'package:fresh_kebab/screens/common_widgets/url_launcher.dart';
 import 'package:fresh_kebab/screens/vacancy/model/vacancy_model.dart';
 import 'package:fresh_kebab/screens/vacancy/repository/vacancy_repository.dart';
@@ -59,7 +60,7 @@ Widget workerMobile(BuildContext context, WorkerModel item) {
           height: 50,
           width: 110,
           decoration: const BoxDecoration(
-              color: Color(0xffcc3333),
+              color: FreshKebabColors.fkRed,
               borderRadius: BorderRadius.all(Radius.circular(30))),
           child: GestureDetector(
             onTap: () {

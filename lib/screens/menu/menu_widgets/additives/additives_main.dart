@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_kebab/screens/common_widgets/constants.dart';
 
 class Additives extends StatefulWidget {
   final List<Widget> additivesList;
@@ -23,73 +24,70 @@ class AdditivesState extends State<Additives> {
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
-          Row(
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.close),
+                  onPressed: () => Navigator.pop(context),
+                ),
+                Image.asset(
+                  'assets/images/shawarma/bbq.png',
+                  width: 180,
+                  height: 180,
+                ),
+                const Text(
+                  'data',
+                  style: TextStyle(fontSize: 20),
+                ),
+                const Text(
+                  'ssasasas',
+                  style: TextStyle(
+                      color: FreshKebabColors.fkDescriptionColor, fontSize: 13),
+                ),
+                const SizedBox(height: 50),
+                DecoratedBox(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: FreshKebabColors.fkRed, width: 2),
+                    borderRadius: const BorderRadius.all(Radius.circular(30)),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 32),
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: const Text(
+                        'В корзину',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: FreshKebabColors.fkRed, fontSize: 13),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10),
+              ],
+            ),
+          ),
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Row(
                 children: [
-                  Row(
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.close),
-                        onPressed: () => Navigator.pop(context),
-                      ),
-                      Text('Выберите добавки:', style: style),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: widget.additivesList),
-                  ),
-                  Text(
-                    'Итого: ₽',
-                    style: style,
-                  )
+                  Text('Выберите добавки:', style: style),
                 ],
               ),
-              const Spacer(),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image.asset(
-                    'assets/images/shawarma/bbq.png',
-                    width: 180,
-                    height: 180,
-                  ),
-                  const Text(
-                    'data',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  const Text(
-                    'ssasasas',
-                    style: TextStyle(color: Color(0xff636363), fontSize: 13),
-                  ),
-                  const SizedBox(height: 50),
-                  Container(
-                    decoration: BoxDecoration(
-                      border:
-                          Border.all(color: const Color(0xffcc3333), width: 2),
-                      borderRadius: const BorderRadius.all(Radius.circular(30)),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 10, horizontal: 32),
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: const Text(
-                          'В корзину',
-                          textAlign: TextAlign.center,
-                          style:
-                              TextStyle(color: Color(0xffcc3333), fontSize: 13),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: widget.additivesList),
+              ),
+              Text(
+                'Итого: ₽',
+                style: style,
               )
             ],
           ),

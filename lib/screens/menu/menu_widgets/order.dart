@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_kebab/screens/common_widgets/constants.dart';
 import 'package:fresh_kebab/screens/menu/menu_widgets/agreement_widget.dart';
 
 // Экран заказа товаров пользователя (требует доработки)
@@ -162,7 +163,7 @@ class _OrderState extends State<Order> {
                       height: 60,
                       width: 380,
                       decoration: const BoxDecoration(
-                        color: Color(0xffcc3333),
+                        color: FreshKebabColors.fkRed,
                         borderRadius: BorderRadius.all(Radius.circular(40)),
                       ),
                       child: const Center(
@@ -222,7 +223,7 @@ class MyTextField extends StatelessWidget {
           counterText: '',
           hintText: hintText,
           hintStyle: const TextStyle(
-              color: Color(0xffebebeb),
+              color: FreshKebabColors.fkHintColor,
               fontWeight: FontWeight.normal,
               fontSize: 14,
               overflow: TextOverflow.fade),
@@ -230,17 +231,18 @@ class MyTextField extends StatelessWidget {
               const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           enabledBorder: const OutlineInputBorder(
               borderRadius: BorderRadius.zero,
-              borderSide: BorderSide(color: Color(0xffebebeb))),
+              borderSide: BorderSide(color: FreshKebabColors.fkHintColor)),
           focusedBorder: const OutlineInputBorder(
             borderRadius: BorderRadius.zero,
-            borderSide: BorderSide(color: Color(0xffa8a8a8)),
+            borderSide:
+                BorderSide(color: FreshKebabColors.fkFocusedBorderColor),
           ),
           errorBorder: const OutlineInputBorder(
               borderRadius: BorderRadius.zero,
-              borderSide: BorderSide(color: Color(0xffff0000))),
+              borderSide: BorderSide(color: Colors.red)),
           border: const OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.zero),
-            borderSide: BorderSide(color: Color(0xffebebeb)),
+            borderSide: BorderSide(color: FreshKebabColors.fkHintColor),
           ),
         ),
       ),
@@ -350,7 +352,7 @@ class _OrderOneCheckboxState extends State<OrderOneCheckbox> {
               child: const Text(
                 'соглашение об обработке персональных данных',
                 style: TextStyle(
-                  color: Color(0xffff9e7b),
+                  color: FreshKebabColors.fkAgreementColor,
                   fontSize: 9,
                 ),
               ),

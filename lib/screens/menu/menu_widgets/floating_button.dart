@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_kebab/screens/common_widgets/constants.dart';
 import 'package:fresh_kebab/screens/menu/menu_widgets/order.dart';
 
 class FloatingButton extends StatefulWidget {
@@ -21,7 +22,7 @@ class _FloatingButtonState extends State<FloatingButton> {
           child: FloatingActionButton(
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(50)),
-                side: BorderSide(color: Color(0xff028f52), width: 2)),
+                side: BorderSide(color: FreshKebabColors.fkGreen, width: 2)),
             backgroundColor: Colors.white,
             onPressed: () {
               Navigator.push(
@@ -47,7 +48,7 @@ class _FloatingButtonState extends State<FloatingButton> {
             },
             child: const Icon(
               Icons.shopping_bag_outlined,
-              color: Color(0xff028f52),
+              color: FreshKebabColors.fkGreen,
               size: 30,
             ),
           ),
@@ -58,7 +59,7 @@ class _FloatingButtonState extends State<FloatingButton> {
           child: Container(
             alignment: Alignment.center,
             decoration: const BoxDecoration(
-              color: Color(0xffcc3333),
+              color: FreshKebabColors.fkRed,
               borderRadius: BorderRadius.all(
                 Radius.circular(50),
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_kebab/screens/common_widgets/constants.dart';
 import 'package:fresh_kebab/screens/common_widgets/url_launcher.dart';
 
 // Футер для экрана Меню
@@ -11,7 +12,7 @@ class MasterFooter extends StatelessWidget {
     return Column(
       children: [
         Container(
-          decoration: const BoxDecoration(color: Color(0xff028f52)),
+          decoration: const BoxDecoration(color: FreshKebabColors.fkGreen),
           height: 150,
           width: double.infinity,
           child: Column(
@@ -111,19 +112,20 @@ class MasterFooter extends StatelessWidget {
           height: 1,
           width: double.infinity,
           decoration: const BoxDecoration(
-            color: Color(0xfffdfff5),
+            color: Colors.white,
           ),
         ),
         Container(
           height: 30,
           width: double.infinity,
-          decoration: const BoxDecoration(color: Color(0xff028f52)),
+          decoration: const BoxDecoration(color: FreshKebabColors.fkGreen),
           child: const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 "Fresh Kebab © 2024",
-                style: TextStyle(color: Color(0xff77c3a2), fontSize: 12),
+                style: TextStyle(
+                    color: FreshKebabColors.fkLightGreen, fontSize: 12),
               ),
             ],
           ),
@@ -143,7 +145,7 @@ class SlaveFooter extends StatelessWidget {
     return Column(
       children: [
         Container(
-          decoration: const BoxDecoration(color: Color(0xff028f52)),
+          decoration: const BoxDecoration(color: FreshKebabColors.fkGreen),
           height: 150,
           width: double.infinity,
           child: Column(
@@ -189,19 +191,20 @@ class SlaveFooter extends StatelessWidget {
           height: 1,
           width: double.infinity,
           decoration: const BoxDecoration(
-            color: Color(0xfffdfff5),
+            color: Colors.white,
           ),
         ),
         Container(
           height: 30,
           width: double.infinity,
-          decoration: const BoxDecoration(color: Color(0xff028f52)),
+          decoration: const BoxDecoration(color: FreshKebabColors.fkGreen),
           child: const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 "Fresh Kebab © 2024",
-                style: TextStyle(color: Color(0xff77c3a2), fontSize: 12),
+                style: TextStyle(
+                    color: FreshKebabColors.fkLightGreen, fontSize: 12),
               ),
             ],
           ),

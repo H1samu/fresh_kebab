@@ -2,6 +2,7 @@ import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 import 'package:flutter/material.dart';
+import 'package:fresh_kebab/screens/common_widgets/constants.dart';
 import 'package:fresh_kebab/screens/common_widgets/footer.dart';
 import 'package:fresh_kebab/screens/common_widgets/header.dart';
 import 'package:fresh_kebab/screens/common_widgets/url_launcher.dart';
@@ -63,7 +64,7 @@ Widget contactsMobile() {
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w400,
-                  color: Color(0xff028f52),
+                  color: FreshKebabColors.fkGreen,
                 ),
               ),
             ),
@@ -86,7 +87,7 @@ Widget contactsMobile() {
                     "assets/images/logos/vk.png",
                     height: 30,
                     width: 30,
-                    color: const Color(0xff028f52),
+                    color: FreshKebabColors.fkGreen,
                   ),
                 ),
                 const SizedBox(width: 5),
@@ -96,7 +97,7 @@ Widget contactsMobile() {
                     "assets/images/logos/inst.png",
                     height: 25,
                     width: 25,
-                    color: const Color(0xff028f52),
+                    color: FreshKebabColors.fkGreen,
                   ),
                 ),
               ],
@@ -140,7 +141,7 @@ Widget contactsTablet() {
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w400,
-                    color: Color(0xff028f52),
+                    color: FreshKebabColors.fkGreen,
                   ),
                 ),
               ),
@@ -167,7 +168,7 @@ Widget contactsTablet() {
                       "assets/images/logos/vk.png",
                       height: 30,
                       width: 30,
-                      color: const Color(0xff028f52),
+                      color: FreshKebabColors.fkGreen,
                     ),
                   ),
                   const SizedBox(width: 5),
@@ -177,7 +178,7 @@ Widget contactsTablet() {
                       "assets/images/logos/inst.png",
                       height: 25,
                       width: 25,
-                      color: const Color(0xff028f52),
+                      color: FreshKebabColors.fkGreen,
                     ),
                   ),
                 ],

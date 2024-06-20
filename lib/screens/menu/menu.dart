@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_kebab/screens/common_widgets/constants.dart';
 import 'package:fresh_kebab/screens/menu/menu_widgets/floating_button.dart';
 import 'package:fresh_kebab/screens/common_widgets/footer.dart';
 import 'package:fresh_kebab/screens/common_widgets/header.dart';
@@ -103,8 +104,8 @@ class MenuMainState extends State<MenuMain> {
         onTap: (int index) => scrollToIndex(index),
         isScrollable: true,
         tabAlignment: TabAlignment.start,
-        labelColor: const Color(0xff028f52),
-        indicatorColor: const Color(0xffcc3333),
+        labelColor: FreshKebabColors.fkGreen,
+        indicatorColor: FreshKebabColors.fkRed,
         splashFactory: NoSplash.splashFactory,
         overlayColor: WidgetStateColor.transparent,
         tabs: const [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_kebab/screens/common_widgets/constants.dart';
 import 'package:fresh_kebab/screens/common_widgets/url_launcher.dart';
 
 class SlaveHeader extends StatelessWidget {
@@ -55,11 +56,11 @@ class HeaderInfo extends StatelessWidget {
                   children: <TextSpan>[
                     TextSpan(
                         text: '9:00 ',
-                        style: TextStyle(color: Color(0xffcc3333))),
+                        style: TextStyle(color: FreshKebabColors.fkRed)),
                     TextSpan(text: 'до '),
                     TextSpan(
                         text: '23:00',
-                        style: TextStyle(color: Color(0xffcc3333)))
+                        style: TextStyle(color: FreshKebabColors.fkRed))
                   ]),
             ),
             const SizedBox(height: 5),

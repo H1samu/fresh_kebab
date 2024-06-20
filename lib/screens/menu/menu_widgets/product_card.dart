@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_kebab/screens/common_widgets/constants.dart';
 import 'package:fresh_kebab/screens/menu/menu_widgets/additives/additives_main.dart';
 import 'package:fresh_kebab/screens/menu/menu_widgets/additives/additives_for_dishes.dart';
 import 'package:fresh_kebab/screens/menu/menu_widgets/additives/additives_for_shawarma.dart';
@@ -78,7 +79,7 @@ class ProductCard extends StatelessWidget {
                   offset: const Offset(0, 3),
                 ),
               ],
-              border: Border.all(color: const Color(0xffcc3333), width: 2),
+              border: Border.all(color: FreshKebabColors.fkRed, width: 2),
               borderRadius: const BorderRadius.all(Radius.circular(30)),
             ),
             child: Padding(
@@ -88,7 +89,7 @@ class ProductCard extends StatelessWidget {
                 child: const Text(
                   'В корзину',
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Color(0xffcc3333), fontSize: 13),
+                  style: TextStyle(color: FreshKebabColors.fkRed, fontSize: 13),
                 ),
               ),
             ),
@@ -181,7 +182,7 @@ class ProductCardShawarma extends StatelessWidget {
                       offset: const Offset(0, 3),
                     ),
                   ],
-                  border: Border.all(color: const Color(0xffcc3333), width: 2),
+                  border: Border.all(color: FreshKebabColors.fkRed, width: 2),
                   borderRadius: const BorderRadius.all(Radius.circular(30)),
                 ),
                 child: const Padding(
@@ -189,7 +190,8 @@ class ProductCardShawarma extends StatelessWidget {
                   child: Text(
                     'Выбрать добавки',
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Color(0xffcc3333), fontSize: 13),
+                    style:
+                        TextStyle(color: FreshKebabColors.fkRed, fontSize: 13),
                   ),
                 ),
               ),
@@ -281,7 +283,7 @@ class _ProductCardKebabState extends State<ProductCardKebab> {
             DecoratedBox(
               decoration: BoxDecoration(
                   color: Colors.white,
-                  border: Border.all(color: const Color(0xffcc3333), width: 2),
+                  border: Border.all(color: FreshKebabColors.fkRed, width: 2),
                   borderRadius: const BorderRadius.all(Radius.circular(30)),
                   boxShadow: [
                     BoxShadow(
@@ -299,7 +301,8 @@ class _ProductCardKebabState extends State<ProductCardKebab> {
                   child: const Text(
                     'В корзину',
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Color(0xffcc3333), fontSize: 13),
+                    style:
+                        TextStyle(color: FreshKebabColors.fkRed, fontSize: 13),
                   ),
                 ),
               ),
