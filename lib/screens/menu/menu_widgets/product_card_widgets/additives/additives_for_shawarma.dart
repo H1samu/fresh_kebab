@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_kebab/screens/menu/menu_widgets/additives/additives_main.dart';
+import 'package:fresh_kebab/screens/menu/menu_widgets/product_card_widgets/additives/additives_main.dart';
 
 List<Widget> addListShort = [
   const OneCheckbox(

@@ -2,7 +2,7 @@ class ProductModel {
   final String imagePath;
   final String textTitle;
   final String? textDescription;
-  final String textPrice;
+  final int textPrice;
   final String? textWeight;
 
   ProductModel(

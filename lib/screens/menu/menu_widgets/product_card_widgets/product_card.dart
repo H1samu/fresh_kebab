@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fresh_kebab/screens/common_widgets/constants.dart';
-import 'package:fresh_kebab/screens/menu/menu_widgets/additives/additives_main.dart';
-import 'package:fresh_kebab/screens/menu/menu_widgets/additives/additives_for_dishes.dart';
-import 'package:fresh_kebab/screens/menu/menu_widgets/additives/additives_for_shawarma.dart';
+import 'package:fresh_kebab/screens/menu/menu_widgets/product_card_widgets/additives/additives_main.dart';
+import 'package:fresh_kebab/screens/menu/menu_widgets/product_card_widgets/additives/additives_for_dishes.dart';
+import 'package:fresh_kebab/screens/menu/menu_widgets/product_card_widgets/additives/additives_for_shawarma.dart';
 import 'package:fresh_kebab/screens/menu/model/product_model.dart';
 
 // Используется под Пиццу, Бургеры, Дёнер, Салаты, Выпечка, Десерты.
@@ -59,12 +59,23 @@ class ProductCard extends StatelessWidget {
               ),
             ),
           const Spacer(),
-          Text(
-            model.textPrice,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w300,
+          RichText(
+            text: TextSpan(
+              text: model.textPrice.toString(),
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w300,
+              ),
+              children: const [
+                WidgetSpan(child: SizedBox(width: 5)),
+                TextSpan(
+                  text: '₽',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w300,
+                  ),
+                )
+              ],
             ),
           ),
           const SizedBox(height: 8),
@@ -153,12 +164,23 @@ class ProductCardShawarma extends StatelessWidget {
                 ),
               ),
             const Spacer(),
-            Text(
-              model.textPrice,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w300,
+            RichText(
+              text: TextSpan(
+                text: model.textPrice.toString(),
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w300,
+                ),
+                children: const [
+                  WidgetSpan(child: SizedBox(width: 5)),
+                  TextSpan(
+                    text: '₽',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  )
+                ],
               ),
             ),
             const SizedBox(height: 8),
@@ -233,6 +255,9 @@ class ProductCardKebab extends StatefulWidget {
 class _ProductCardKebabState extends State<ProductCardKebab> {
   @override
   Widget build(BuildContext context) {
+    const int cheese = 40;
+    const int common = 20;
+
     return DecoratedBox(
       decoration: const BoxDecoration(color: Colors.white),
       child: SizedBox(
@@ -265,19 +290,30 @@ class _ProductCardKebabState extends State<ProductCardKebab> {
                 ),
               ),
             const Spacer(),
-            Text(
-              widget.model.textPrice,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w300,
+            RichText(
+              text: TextSpan(
+                text: widget.model.textPrice.toString(),
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w300,
+                ),
+                children: const [
+                  WidgetSpan(child: SizedBox(width: 5)),
+                  TextSpan(
+                    text: '₽',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  )
+                ],
               ),
             ),
             const SizedBox(height: 8),
-            const RadioForDishes(
+            RadioForDishes(
               radioName1: 'Без лаваша',
-              radioName2: 'Обычный лаваш (+20 ₽)',
-              radioName3: 'Сырный лаваш (+40 ₽)',
+              radioName2: 'Обычный лаваш (+$cheese ₽)',
+              radioName3: 'Сырный лаваш (+$common ₽)',
             ),
             const SizedBox(height: 8),
             DecoratedBox(

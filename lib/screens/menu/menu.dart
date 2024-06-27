@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fresh_kebab/screens/common_widgets/constants.dart';
-import 'package:fresh_kebab/screens/menu/menu_widgets/floating_button.dart';
+import 'package:fresh_kebab/screens/menu/menu_widgets/floating_button_widgets/floating_button.dart';
 import 'package:fresh_kebab/screens/common_widgets/footer.dart';
 import 'package:fresh_kebab/screens/common_widgets/header.dart';
 import 'package:fresh_kebab/screens/menu/repository/menu_position_lists_mapping.dart';
@@ -147,7 +147,7 @@ class MenuMainState extends State<MenuMain> {
                 _titleForCards('Фри-меню', 1),
                 GridViewForCards(
                   card: friesCards,
-                  myHeight: 360,
+                  myHeight: 385,
                 ),
                 _titleForCards('Напитки', 2),
                 GridViewForCards(
