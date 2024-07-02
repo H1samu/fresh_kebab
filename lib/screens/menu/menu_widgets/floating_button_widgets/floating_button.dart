@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_kebab/provider/cart_provider.dart';
 import 'package:fresh_kebab/screens/common_widgets/constants.dart';
 import 'package:fresh_kebab/screens/menu/menu_widgets/order_widgets/order.dart';
+import 'package:provider/provider.dart';
 
 class FloatingButton extends StatefulWidget {
   const FloatingButton({super.key});
@@ -10,8 +12,37 @@ class FloatingButton extends StatefulWidget {
 }
 
 class _FloatingButtonState extends State<FloatingButton> {
+  double _containerSize = 25.0;
+  int _previousCartLength = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    // Инициализируем предыдущую длину корзины при первом запуске
+    _previousCartLength = context.read<CartProvider>().shoppingCart.length;
+  }
+
   @override
   Widget build(BuildContext context) {
+    var orderCount = context.watch<CartProvider>().shoppingCart.length;
+
+    // Проверяем условие: если текущая длина корзины больше предыдущей
+    if (orderCount > _previousCartLength) {
+      setState(() {
+        _containerSize = 30.0; // Увеличиваем размер контейнера
+      });
+
+      // Запускаем таймер для возвращения размера обратно через 200 мс
+      Future.delayed(const Duration(milliseconds: 200), () {
+        setState(() {
+          _containerSize = 25.0; // Возвращаем стандартный размер контейнера
+        });
+      });
+
+      // Обновляем значение предыдущей длины корзины
+      _previousCartLength = orderCount;
+    }
+
     return Stack(
       clipBehavior: Clip.none,
       fit: StackFit.loose,
@@ -56,7 +87,8 @@ class _FloatingButtonState extends State<FloatingButton> {
         Positioned(
           bottom: -8,
           right: -8,
-          child: Container(
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
             alignment: Alignment.center,
             decoration: const BoxDecoration(
               color: FreshKebabColors.fkRed,
@@ -64,11 +96,11 @@ class _FloatingButtonState extends State<FloatingButton> {
                 Radius.circular(50),
               ),
             ),
-            height: 25,
-            width: 25,
-            child: const Text(
-              '0',
-              style: TextStyle(color: Colors.white),
+            height: _containerSize,
+            width: _containerSize,
+            child: Text(
+              "$orderCount",
+              style: const TextStyle(color: Colors.white),
             ),
           ),
         ),

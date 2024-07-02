@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:fresh_kebab/screens/common_widgets/constants.dart';
+import 'package:fresh_kebab/screens/menu/menu_widgets/product_card_widgets/add_cart_button.dart';
 import 'package:fresh_kebab/screens/menu/menu_widgets/product_card_widgets/additives/additives_main.dart';
 import 'package:fresh_kebab/screens/menu/menu_widgets/product_card_widgets/additives/additives_for_dishes.dart';
 import 'package:fresh_kebab/screens/menu/menu_widgets/product_card_widgets/additives/additives_for_shawarma.dart';
-import 'package:fresh_kebab/screens/menu/model/product_model.dart';
+import 'package:fresh_kebab/screens/menu/models/product_model.dart';
 
 // Используется под Пиццу, Бургеры, Дёнер, Салаты, Выпечка, Десерты.
-class ProductCard extends StatelessWidget {
+class ProductCard extends StatefulWidget {
   final ProductModel model;
   const ProductCard({
     super.key,
     required this.model,
   });
 
+  @override
+  State<ProductCard> createState() => _ProductCardState();
+}
+
+class _ProductCardState extends State<ProductCard> {
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
@@ -23,23 +29,27 @@ class ProductCard extends StatelessWidget {
       child: Column(
         children: [
           Image.asset(
-            model.imagePath,
+            widget.model.imagePath,
             height: 150,
             width: 150,
             fit: BoxFit.cover,
           ),
           const SizedBox(height: 30),
-          Text(model.textTitle,
+          Text(widget.model.title,
               textAlign: TextAlign.center,
+              maxLines: 2, // Вы можете задать нужное вам количество строк
+              overflow:
+                  TextOverflow.visible, // Используем для переноса слов целиком
+              softWrap: true, // Включаем перенос слов
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w300,
               )),
           const SizedBox(height: 15),
-          if (model.textDescription != null)
+          if (widget.model.description != null)
             SizedBox(
               width: 150,
-              child: Text(model.textDescription!,
+              child: Text(widget.model.description!,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize: 15,
@@ -48,9 +58,9 @@ class ProductCard extends StatelessWidget {
                   ),
                   textWidthBasis: TextWidthBasis.parent),
             ),
-          if (model.textWeight != null)
+          if (widget.model.weight != null)
             Text(
-              model.textWeight!,
+              widget.model.weight!,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 15,
@@ -59,52 +69,16 @@ class ProductCard extends StatelessWidget {
               ),
             ),
           const Spacer(),
-          RichText(
-            text: TextSpan(
-              text: model.textPrice.toString(),
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w300,
-              ),
-              children: const [
-                WidgetSpan(child: SizedBox(width: 5)),
-                TextSpan(
-                  text: '₽',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w300,
-                  ),
-                )
-              ],
+          Text(
+            '${widget.model.price.toString()} ₽',
+            style: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w300,
+              color: Colors.black,
             ),
           ),
           const SizedBox(height: 8),
-          DecoratedBox(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.4),
-                  spreadRadius: 0.5,
-                  blurRadius: 1,
-                  offset: const Offset(0, 3),
-                ),
-              ],
-              border: Border.all(color: FreshKebabColors.fkRed, width: 2),
-              borderRadius: const BorderRadius.all(Radius.circular(30)),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 32),
-              child: GestureDetector(
-                onTap: () {},
-                child: const Text(
-                  'В корзину',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: FreshKebabColors.fkRed, fontSize: 13),
-                ),
-              ),
-            ),
-          ),
+          AddToCartButton(widget: widget),
           const SizedBox(height: 8),
         ],
       ),
@@ -136,16 +110,16 @@ class ProductCardShawarma extends StatelessWidget {
               fit: BoxFit.cover,
             ),
             const SizedBox(height: 30),
-            Text(model.textTitle,
+            Text(model.title,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 19,
                   fontWeight: FontWeight.w300,
                 )),
             const SizedBox(height: 15),
-            if (model.textDescription != null)
+            if (model.description != null)
               Text(
-                model.textDescription!,
+                model.description!,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 13,
@@ -153,9 +127,9 @@ class ProductCardShawarma extends StatelessWidget {
                   height: 1.5,
                 ),
               ),
-            if (model.textWeight != null)
+            if (model.weight != null)
               Text(
-                model.textWeight!,
+                model.weight!,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 15,
@@ -164,23 +138,12 @@ class ProductCardShawarma extends StatelessWidget {
                 ),
               ),
             const Spacer(),
-            RichText(
-              text: TextSpan(
-                text: model.textPrice.toString(),
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w300,
-                ),
-                children: const [
-                  WidgetSpan(child: SizedBox(width: 5)),
-                  TextSpan(
-                    text: '₽',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  )
-                ],
+            Text(
+              '${model.price.toString()} ₽',
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w300,
+                color: Colors.black,
               ),
             ),
             const SizedBox(height: 8),
@@ -226,10 +189,10 @@ class ProductCardShawarma extends StatelessWidget {
   }
 
   Additives choiceAddList() {
-    if ((model.textTitle != 'Ай-фреш')) {
-      if (model.textTitle.contains('Вегетарианская')) {
+    if ((model.title != 'Ай-фреш')) {
+      if (model.title.contains('Вегетарианская')) {
         return Additives(additivesList: addListVegan);
-      } else if (model.textTitle.contains('BBQ')) {
+      } else if (model.title.contains('BBQ')) {
         return Additives(additivesList: addListBeef);
       } else {
         return Additives(additivesList: addListChicken);
@@ -272,16 +235,16 @@ class _ProductCardKebabState extends State<ProductCardKebab> {
               fit: BoxFit.cover,
             ),
             const SizedBox(height: 30),
-            Text(widget.model.textTitle,
+            Text(widget.model.title,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w300,
                 )),
             const SizedBox(height: 15),
-            if (widget.model.textDescription != null)
+            if (widget.model.description != null)
               Text(
-                widget.model.textDescription!,
+                widget.model.description!,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 15,
@@ -290,27 +253,16 @@ class _ProductCardKebabState extends State<ProductCardKebab> {
                 ),
               ),
             const Spacer(),
-            RichText(
-              text: TextSpan(
-                text: widget.model.textPrice.toString(),
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w300,
-                ),
-                children: const [
-                  WidgetSpan(child: SizedBox(width: 5)),
-                  TextSpan(
-                    text: '₽',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  )
-                ],
+            Text(
+              '${widget.model.price.toString()} ₽',
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w300,
+                color: Colors.black,
               ),
             ),
             const SizedBox(height: 8),
-            RadioForDishes(
+            const RadioForDishes(
               radioName1: 'Без лаваша',
               radioName2: 'Обычный лаваш (+$cheese ₽)',
               radioName3: 'Сырный лаваш (+$common ₽)',

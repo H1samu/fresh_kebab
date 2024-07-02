@@ -2,6 +2,7 @@ import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fresh_kebab/screens/common_widgets/constants.dart';
 import 'package:fresh_kebab/screens/common_widgets/footer.dart';
 import 'package:fresh_kebab/screens/common_widgets/header.dart';
@@ -164,21 +165,19 @@ Widget contactsTablet() {
                 children: [
                   GestureDetector(
                     onTap: () => MyLaunch.linkVk(),
-                    child: Image.asset(
-                      "assets/images/logos/vk.png",
-                      height: 30,
-                      width: 30,
+                    child: const FaIcon(
+                      FontAwesomeIcons.vk,
                       color: FreshKebabColors.fkGreen,
+                      size: 30,
                     ),
                   ),
-                  const SizedBox(width: 5),
+                  const SizedBox(width: 8),
                   GestureDetector(
                     onTap: () => MyLaunch.linkInst(),
-                    child: Image.asset(
-                      "assets/images/logos/inst.png",
-                      height: 25,
-                      width: 25,
+                    child: const FaIcon(
+                      FontAwesomeIcons.instagram,
                       color: FreshKebabColors.fkGreen,
+                      size: 30,
                     ),
                   ),
                 ],

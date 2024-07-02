@@ -23,7 +23,7 @@ class _RadioForDishesState extends State<RadioForDishes> {
     selectedValue = 0;
   }
 
-  TextStyle style = const TextStyle(fontSize: 9);
+  TextStyle style = const TextStyle(fontSize: 8.5);
 
   @override
   Widget build(BuildContext context) {

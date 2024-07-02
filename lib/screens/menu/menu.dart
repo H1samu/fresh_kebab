@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_kebab/provider/cart_provider.dart';
 import 'package:fresh_kebab/screens/common_widgets/constants.dart';
 import 'package:fresh_kebab/screens/menu/menu_widgets/floating_button_widgets/floating_button.dart';
 import 'package:fresh_kebab/screens/common_widgets/footer.dart';
 import 'package:fresh_kebab/screens/common_widgets/header.dart';
 import 'package:fresh_kebab/screens/menu/repository/menu_position_lists_mapping.dart';
+import 'package:provider/provider.dart';
 
 class MenuMain extends StatefulWidget {
   const MenuMain({Key? key}) : super(key: key);
@@ -75,13 +77,14 @@ class MenuMainState extends State<MenuMain> {
 // Каркас
   @override
   Widget build(BuildContext context) {
+    var orderIsEmpty = context.watch<CartProvider>().shoppingCart.isEmpty;
     return DefaultTabController(
       length: 11,
       child: Builder(
         builder: (BuildContext context) {
           tabContext = context;
           return Scaffold(
-            floatingActionButton: const FloatingButton(),
+            floatingActionButton: orderIsEmpty ? null : const FloatingButton(),
             backgroundColor: Colors.white,
             appBar: _buildAppBar(),
             body: _buildMenu(),

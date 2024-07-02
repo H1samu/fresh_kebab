@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_kebab/provider/product_provider.dart';
 import 'package:fresh_kebab/screens/menu/menu_widgets/product_card_widgets/product_card.dart';
-import 'package:fresh_kebab/screens/menu/repository/menu_position_lists.dart';
 
 final List<Widget> pizzaCards = ProductProvider()
     .pizzaList
@@ -55,7 +55,7 @@ final List<Widget> dessertsCards = ProductProvider()
 final List<Widget> dishesCards = ProductProvider()
     .dishesList
     .map(
-      (model) => model.textTitle == 'Плов с\nговядиной'
+      (model) => model.title == 'Плов с\nговядиной'
           ? ProductCard(model: model)
           : ProductCardKebab(model: model),
     )
