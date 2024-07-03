@@ -84,21 +84,19 @@ Widget contactsMobile() {
               children: [
                 GestureDetector(
                   onTap: () => MyLaunch.linkVk(),
-                  child: Image.asset(
-                    "assets/images/logos/vk.png",
-                    height: 30,
-                    width: 30,
+                  child: const FaIcon(
+                    FontAwesomeIcons.vk,
                     color: FreshKebabColors.fkGreen,
+                    size: 30,
                   ),
                 ),
                 const SizedBox(width: 5),
                 GestureDetector(
                   onTap: () => MyLaunch.linkInst(),
-                  child: Image.asset(
-                    "assets/images/logos/inst.png",
-                    height: 25,
-                    width: 25,
+                  child: const FaIcon(
+                    FontAwesomeIcons.vk,
                     color: FreshKebabColors.fkGreen,
+                    size: 30,
                   ),
                 ),
               ],

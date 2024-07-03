@@ -5,7 +5,9 @@ import 'package:fresh_kebab/screens/menu/menu_widgets/order_widgets/order.dart';
 import 'package:provider/provider.dart';
 
 class FloatingButton extends StatefulWidget {
-  const FloatingButton({super.key});
+  const FloatingButton({
+    super.key,
+  });
 
   @override
   State<FloatingButton> createState() => _FloatingButtonState();
@@ -14,20 +16,34 @@ class FloatingButton extends StatefulWidget {
 class _FloatingButtonState extends State<FloatingButton> {
   double _containerSize = 25.0;
   int _previousCartLength = 0;
+  int _previousCartTotal = 0;
+  bool _displayPlus = false;
 
   @override
   void initState() {
     super.initState();
     // Инициализируем предыдущую длину корзины при первом запуске
     _previousCartLength = context.read<CartProvider>().shoppingCart.length;
+    _previousCartTotal = context.read<CartProvider>().cartSubTotal;
   }
 
   @override
   Widget build(BuildContext context) {
     var orderCount = context.watch<CartProvider>().shoppingCart.length;
+    var orderSubTotal = context.watch<CartProvider>().cartSubTotal;
+
+    // Проверяем условие: если длина корзины не изменилась, но изменилась стоимость корзины
+    if (orderCount == _previousCartLength &&
+        orderSubTotal != _previousCartTotal) {
+      _displayPlus = true;
+    } else {
+      _displayPlus = false;
+    }
 
     // Проверяем условие: если текущая длина корзины больше предыдущей
-    if (orderCount > _previousCartLength) {
+    if (orderCount > _previousCartLength ||
+        (orderSubTotal != _previousCartTotal &&
+            orderCount == _previousCartLength)) {
       setState(() {
         _containerSize = 30.0; // Увеличиваем размер контейнера
       });
@@ -41,6 +57,7 @@ class _FloatingButtonState extends State<FloatingButton> {
 
       // Обновляем значение предыдущей длины корзины
       _previousCartLength = orderCount;
+      _previousCartTotal = orderSubTotal;
     }
 
     return Stack(
@@ -88,21 +105,20 @@ class _FloatingButtonState extends State<FloatingButton> {
           bottom: -8,
           right: -8,
           child: AnimatedContainer(
-            duration: const Duration(milliseconds: 200),
-            alignment: Alignment.center,
-            decoration: const BoxDecoration(
-              color: FreshKebabColors.fkRed,
-              borderRadius: BorderRadius.all(
-                Radius.circular(50),
+              duration: const Duration(milliseconds: 200),
+              alignment: Alignment.center,
+              decoration: const BoxDecoration(
+                color: FreshKebabColors.fkRed,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(50),
+                ),
               ),
-            ),
-            height: _containerSize,
-            width: _containerSize,
-            child: Text(
-              "$orderCount",
-              style: const TextStyle(color: Colors.white),
-            ),
-          ),
+              height: _containerSize,
+              width: _containerSize,
+              child: Text(
+                _displayPlus ? '+' : "$orderCount",
+                style: const TextStyle(color: Colors.white),
+              )),
         ),
       ],
     );

@@ -135,19 +135,43 @@ class _TotalPriceState extends State<TotalPrice> {
             const SizedBox(height: 30),
           ],
         ),
-        Container(
-          height: 60,
-          width: 380,
-          decoration: const BoxDecoration(
-            color: FreshKebabColors.fkRed,
-            borderRadius: BorderRadius.all(Radius.circular(40)),
-          ),
-          child: const Center(
-            child: Text(
-              'Заказать',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w400,
+        GestureDetector(
+          onTap: () {
+            if (context.read<CartProvider>().cartTotal < 500) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  backgroundColor: Color.fromARGB(255, 247, 247, 247),
+                  content: Text(
+                    "Сумма заказа должна быть не менее 500 рублей!",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              );
+            } else {
+              // Логика заказа
+            }
+          },
+          child: Container(
+            height: 60,
+            width: 380,
+            decoration: BoxDecoration(
+                color: FreshKebabColors.fkRed,
+                borderRadius: const BorderRadius.all(Radius.circular(40)),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.4),
+                    spreadRadius: 0.5,
+                    blurRadius: 1,
+                    offset: const Offset(0, 3),
+                  ),
+                ]),
+            child: const Center(
+              child: Text(
+                'Заказать',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
             ),
           ),
