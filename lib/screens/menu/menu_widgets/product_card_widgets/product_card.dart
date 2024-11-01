@@ -191,14 +191,26 @@ class ProductCardShawarma extends StatelessWidget {
   Additives choiceAddList() {
     if ((model.title != 'Ай-фреш')) {
       if (model.title.contains('Вегетарианская')) {
-        return Additives(additivesList: addListVegan);
+        return Additives(
+          additivesList: addListVegan,
+          productProvider: model,
+        );
       } else if (model.title.contains('BBQ')) {
-        return Additives(additivesList: addListBeef);
+        return Additives(
+          additivesList: addListBeef,
+          productProvider: model,
+        );
       } else {
-        return Additives(additivesList: addListChicken);
+        return Additives(
+          additivesList: addListChicken,
+          productProvider: model,
+        );
       }
     } else {
-      return Additives(additivesList: addListShort);
+      return Additives(
+        additivesList: addListShort,
+        productProvider: model,
+      );
     }
   }
 }
