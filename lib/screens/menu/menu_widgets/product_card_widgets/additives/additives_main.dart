@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fresh_kebab/screens/common_widgets/constants.dart';
+import 'package:fresh_kebab/screens/menu/menu_widgets/product_card_widgets/add_cart_button/add_cart_button.dart';
 import 'package:fresh_kebab/screens/menu/models/product_model.dart';
 
 class Additives extends StatefulWidget {
@@ -79,39 +80,13 @@ class AdditivesState extends State<Additives> {
                     children: widget.additivesList),
               ),
               Text(
-                'Итого: ${myPrice} ₽',
+                'Итого: $myPrice ₽',
                 style: style,
               ),
               const SizedBox(height: 20),
-              DecoratedBox(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: FreshKebabColors.fkRed, width: 2),
-                    borderRadius: const BorderRadius.all(Radius.circular(30)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.4),
-                        spreadRadius: 0.5,
-                        blurRadius: 1,
-                        offset: const Offset(0, 3),
-                      ),
-                    ]),
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 32),
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: const Text(
-                      'В корзину',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: FreshKebabColors.fkRed,
-                        fontSize: 13,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              AddToCartButton(
+                productModel: widget.productProvider!,
+              )
             ],
           ),
         ],

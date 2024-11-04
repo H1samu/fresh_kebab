@@ -16,19 +16,7 @@ class MenuMain extends StatefulWidget {
 
 class MenuMainState extends State<MenuMain> {
   // Ключи к табам
-  final List<GlobalKey> tabCategories = [
-    GlobalKey(),
-    GlobalKey(),
-    GlobalKey(),
-    GlobalKey(),
-    GlobalKey(),
-    GlobalKey(),
-    GlobalKey(),
-    GlobalKey(),
-    GlobalKey(),
-    GlobalKey(),
-    GlobalKey(),
-  ];
+  final List<GlobalKey> tabCategories = List.generate(11, (_) => GlobalKey());
 
   late ScrollController scrollController;
 
@@ -96,6 +84,19 @@ class MenuMainState extends State<MenuMain> {
 
 // Аппбар
   AppBar _buildAppBar() {
+    final List<String> tabTitles = [
+      'Пицца',
+      'Фри-меню',
+      'Напитки',
+      'Молочные коктейли',
+      'Шаурма',
+      'Бургеры',
+      'Дёнер',
+      'Горячие блюда',
+      'Салаты',
+      'Выпечка',
+      'Десерты',
+    ];
     return AppBar(
       automaticallyImplyLeading: false,
       scrolledUnderElevation: 0,
@@ -104,27 +105,14 @@ class MenuMainState extends State<MenuMain> {
       backgroundColor: Colors.white,
       elevation: 0,
       bottom: TabBar(
-        onTap: (int index) => scrollToIndex(index),
-        isScrollable: true,
-        tabAlignment: TabAlignment.start,
-        labelColor: FreshKebabColors.fkGreen,
-        indicatorColor: FreshKebabColors.fkRed,
-        splashFactory: NoSplash.splashFactory,
-        overlayColor: WidgetStateColor.transparent,
-        tabs: const [
-          Tab(text: 'Пицца '),
-          Tab(text: 'Фри-меню'),
-          Tab(text: 'Напитки '),
-          Tab(text: 'Молочные коктейли'),
-          Tab(text: 'Шаурма'),
-          Tab(text: 'Бургеры'),
-          Tab(text: 'Дёнер'),
-          Tab(text: 'Горячие блюда'),
-          Tab(text: 'Салаты'),
-          Tab(text: 'Выпечка'),
-          Tab(text: 'Десерты'),
-        ],
-      ),
+          onTap: (int index) => scrollToIndex(index),
+          isScrollable: true,
+          tabAlignment: TabAlignment.start,
+          labelColor: FreshKebabColors.fkGreen,
+          indicatorColor: FreshKebabColors.fkRed,
+          splashFactory: NoSplash.splashFactory,
+          overlayColor: WidgetStateColor.transparent,
+          tabs: tabTitles.map((title) => Tab(text: title)).toList()),
       flexibleSpace: const Padding(
         padding: EdgeInsets.only(right: 40, top: 20, bottom: 40, left: 20),
         child: HeaderInfo(),
@@ -144,57 +132,57 @@ class MenuMainState extends State<MenuMain> {
               children: [
                 _titleForCards('Пицца', 0),
                 GridViewForCards(
-                  card: pizzaCards,
+                  card: productCards['pizza']!,
                   myHeight: 560,
                 ),
                 _titleForCards('Фри-меню', 1),
                 GridViewForCards(
-                  card: friesCards,
+                  card: productCards['fries']!,
                   myHeight: 385,
                 ),
                 _titleForCards('Напитки', 2),
                 GridViewForCards(
-                  card: drinksCards,
+                  card: productCards['drinks']!,
                   myHeight: 370,
                 ),
                 _titleForCards('Молочные коктейли', 3),
                 GridViewForCards(
-                  card: cocktailsCards,
+                  card: productCards['cocktails']!,
                   myHeight: 460,
                 ),
                 _titleForCards('Шаурма', 4),
                 GridViewForCards(
-                  card: shawarmaCards,
+                  card: productCards['shawarma']!,
                   myHeight: 500,
                 ),
                 _titleForCards('Бургеры', 5),
                 GridViewForCards(
-                  card: burgersCards,
+                  card: productCards['burgers']!,
                   myHeight: 590,
                 ),
                 _titleForCards('Дёнер', 6),
                 GridViewForCards(
-                  card: donersCards,
+                  card: productCards['doners']!,
                   myHeight: 590,
                 ),
                 _titleForCards('Горячие блюда', 7),
                 GridViewForCards(
-                  card: dishesCards,
+                  card: productCards['dishes']!,
                   myHeight: 600,
                 ),
                 _titleForCards('Салаты', 8),
                 GridViewForCards(
-                  card: saladsCards,
+                  card: productCards['salads']!,
                   myHeight: 520,
                 ),
                 _titleForCards('Выпечка', 9),
                 GridViewForCards(
-                  card: bakeryCards,
+                  card: productCards['bakery']!,
                   myHeight: 450,
                 ),
                 _titleForCards('Десерты', 10),
                 GridViewForCards(
-                  card: dessertsCards,
+                  card: productCards['desserts']!,
                   myHeight: 495,
                 ),
               ],

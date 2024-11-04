@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:fresh_kebab/provider/cart_provider.dart';
 import 'package:fresh_kebab/screens/common_widgets/constants.dart';
-import 'package:fresh_kebab/screens/menu/menu_widgets/product_card_widgets/product_card.dart';
+import 'package:fresh_kebab/screens/menu/models/product_model.dart';
 import 'package:provider/provider.dart';
 
 class AddToCartButton extends StatefulWidget {
+  final ProductModel productModel;
   const AddToCartButton({
     super.key,
-    required this.widget,
+    required this.productModel,
   });
-
-  final ProductCard widget;
 
   @override
   State<AddToCartButton> createState() => _AddToCartButtonState();
@@ -57,11 +56,11 @@ class _AddToCartButtonState extends State<AddToCartButton>
         _controller.forward();
       },
       onLongPressEnd: (details) {
-        context.read<CartProvider>().addToCart(widget.widget.model);
+        context.read<CartProvider>().addToCart(widget.productModel);
         _controller.reverse();
       },
       onTap: () {
-        context.read<CartProvider>().addToCart(widget.widget.model);
+        context.read<CartProvider>().addToCart(widget.productModel);
       },
       child: DecoratedBox(
         decoration: BoxDecoration(
