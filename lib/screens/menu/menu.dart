@@ -4,6 +4,7 @@ import 'package:fresh_kebab/screens/common_widgets/constants.dart';
 import 'package:fresh_kebab/screens/menu/menu_widgets/floating_button_widgets/floating_button.dart';
 import 'package:fresh_kebab/screens/common_widgets/footer.dart';
 import 'package:fresh_kebab/screens/common_widgets/header.dart';
+import 'package:fresh_kebab/screens/menu/menu_widgets/menu_main/gridview_for_cards.dart';
 import 'package:fresh_kebab/screens/menu/repository/menu_position_lists_mapping.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +16,6 @@ class MenuMain extends StatefulWidget {
 }
 
 class MenuMainState extends State<MenuMain> {
-  // Ключи к табам
   final List<GlobalKey> tabCategories = List.generate(11, (_) => GlobalKey());
 
   late ScrollController scrollController;
@@ -62,7 +62,6 @@ class MenuMainState extends State<MenuMain> {
     scrollController.addListener(animateToTab);
   }
 
-// Каркас
   @override
   Widget build(BuildContext context) {
     var orderIsEmpty = context.watch<CartProvider>().shoppingCart.isEmpty;
@@ -82,7 +81,6 @@ class MenuMainState extends State<MenuMain> {
     );
   }
 
-// Аппбар
   AppBar _buildAppBar() {
     final List<String> tabTitles = [
       'Пицца',
@@ -105,7 +103,7 @@ class MenuMainState extends State<MenuMain> {
       backgroundColor: Colors.white,
       elevation: 0,
       bottom: TabBar(
-          onTap: (int index) => scrollToIndex(index),
+          onTap: (index) => scrollToIndex(index),
           isScrollable: true,
           tabAlignment: TabAlignment.start,
           labelColor: FreshKebabColors.fkGreen,
@@ -120,7 +118,6 @@ class MenuMainState extends State<MenuMain> {
     );
   }
 
-// Основное меню
   SingleChildScrollView _buildMenu() {
     return SingleChildScrollView(
       controller: scrollController,
@@ -195,11 +192,7 @@ class MenuMainState extends State<MenuMain> {
     );
   }
 
-// Заголовок для наименования товаров
-  Container _titleForCards(
-    final String title,
-    final int index,
-  ) {
+  Container _titleForCards(final String title, final int index) {
     return Container(
       key: tabCategories[index],
       alignment: Alignment.centerLeft,
@@ -208,48 +201,6 @@ class MenuMainState extends State<MenuMain> {
         title,
         style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 30),
       ),
-    );
-  }
-}
-
-// Размещение карточек товара на экране
-class GridViewForCards extends StatelessWidget {
-  final List<Widget> card;
-  final double myHeight;
-  const GridViewForCards(
-      {super.key, required this.card, required this.myHeight});
-
-  @override
-  Widget build(BuildContext context) {
-    int crossAxisCount;
-
-    double screenWidth = MediaQuery.of(context).size.width;
-
-    if (screenWidth <= 490) {
-      crossAxisCount = 2;
-    } else if (screenWidth <= 680) {
-      crossAxisCount = 3;
-    } else if (screenWidth <= 850) {
-      crossAxisCount = 4;
-    } else if (screenWidth <= 1000) {
-      crossAxisCount = 5;
-    } else if (screenWidth <= 1130) {
-      crossAxisCount = 6;
-    } else if (screenWidth <= 1280) {
-      crossAxisCount = 7;
-    } else {
-      crossAxisCount = 8;
-    }
-    return GridView(
-      shrinkWrap: true,
-      physics: const BouncingScrollPhysics(),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: crossAxisCount,
-        crossAxisSpacing: 20,
-        mainAxisSpacing: 20,
-        mainAxisExtent: myHeight,
-      ),
-      children: card,
     );
   }
 }

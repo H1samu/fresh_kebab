@@ -94,7 +94,7 @@ Widget contactsMobile() {
                 GestureDetector(
                   onTap: () => MyLaunch.linkInst(),
                   child: const FaIcon(
-                    FontAwesomeIcons.vk,
+                    FontAwesomeIcons.instagram,
                     color: FreshKebabColors.fkGreen,
                     size: 30,
                   ),
